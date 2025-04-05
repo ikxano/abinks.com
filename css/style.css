@@ -103,7 +103,7 @@ nav ul li a.active::after, nav ul li a:hover::after {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/random/1600x900/?product') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/random/1600x900/?housing,silhouette') no-repeat center center/cover;
     color: #fff;
     padding: 7rem 0;
     margin-top: 4rem;
