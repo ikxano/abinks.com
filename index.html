@@ -8,388 +8,124 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-color: #4285F4;
-            --secondary-color: #34A853;
-            --dark-color: #333;
-            --light-color: #f8f9fa;
-            --accent-color: #FBBC05;
-            --text-color: #4d4d4d;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .btn:hover {
-            background-color: #3367d6;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section - Following Moosend's guidance */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('student-housing-hero.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 6rem 0;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 2.8rem;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Form Section - Key conversion point */
-        .signup-form {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .signup-form h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .form-note {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        /* Benefits Section - Feature highlights */
-        .benefits {
-            padding: 5rem 0;
-            background-color: var(--light-color);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .benefit-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .benefit-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Testimonials - Social proof section */
-        .testimonials {
-            padding: 5rem 0;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .testimonial-quote {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 1rem;
-        }
-
-        .author-info h4 {
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info p {
-            font-size: 0.9rem;
-        }
-
-        /* CTA Section */
-        .cta {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .cta h2 {
-            color: white;
-            font-size: 2.3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta .btn {
-            background-color: white;
-            color: var(--primary-color);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-        }
-
-        .footer-column h3 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Responsive styles */
-        @media (max-width: 992px) {
-            .hero-content,
-            .benefits-grid,
-            .testimonial-grid,
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content,
-            .benefits-grid,
-            .testimonial-grid,
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 4rem 0;
-            }
-
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Navigation -->
     <header>
         <div class="container">
-            <nav>
+            <nav class="navbar">
                 <div class="logo">
-                    <a href="#"><img src="abinks-logo.png" alt="Abinks Logo"></a>
+                    <a href="index.html">
+                        <img src="images/abinks-logo.png" alt="Abinks Logo">
+                    </a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">For Universities</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                    <li><a href="#" class="btn-sm">Login</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#signup" class="btn-secondary">Sign Up</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section (Main headline, USP, Hero image) -->
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="signup">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Find Your Perfect Student Housing in Minutes</h1>
-                    <p>Abinks connects students with quality housing options near campus. No more stress, no more endless searching - just the perfect place to call home during your college years.</p>
-                    <a href="#signup" class="btn">Get Started Now</a>
+                    <p>Abinks connects students with quality housing options near their campus without the stress, overwhelming searches, or application fees.</p>
+                    <div class="trust-badges">
+                        <span><i class="fas fa-check-circle"></i> Over 10,000 verified listings</span>
+                        <span><i class="fas fa-check-circle"></i> Trusted by 50+ universities</span>
+                        <span><i class="fas fa-check-circle"></i> 4.8/5 student satisfaction</span>
+                    </div>
                 </div>
-                <div class="signup-form" id="signup">
-                    <h3>Find Your New Home Today</h3>
-                    <form>
+                
+                <div class="signup-form">
+                    <h3>Find Housing Options Now</h3>
+                    <form id="housing-search-form">
                         <div class="form-group">
                             <label for="university">University/College</label>
                             <select id="university" required>
                                 <option value="" disabled selected>Select your school</option>
-                                <option value="univ1">State University</option>
-                                <option value="univ2">Tech Institute</option>
-                                <option value="univ3">Liberal Arts College</option>
+                                <option value="state-university">State University</option>
+                                <option value="tech-institute">Tech Institute</option>
+                                <option value="liberal-arts">Liberal Arts College</option>
+                                <option value="community-college">Community College</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="yourname@email.com" required>
+                            <input type="email" id="email" placeholder="your.email@school.edu" required>
+                            <p class="form-note">We'll send your housing matches to this email</p>
                         </div>
                         <div class="form-group">
-                            <label for="move-in">Move-in Date</label>
-                            <input type="date" id="move-in" required>
+                            <label for="move-date">When do you need housing?</label>
+                            <select id="move-date" required>
+                                <option value="" disabled selected>Select move-in timeframe</option>
+                                <option value="immediately">Immediately</option>
+                                <option value="next-month">Next Month</option>
+                                <option value="next-semester">Next Semester</option>
+                                <option value="next-year">Next Academic Year</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn" style="width:100%">Find Housing Options</button>
-                        <p class="form-note">We'll email you personalized housing options based on your preferences.</p>
+                        <button type="submit" class="btn btn-full">Get Housing Options</button>
+                        <p class="privacy-note">By clicking above, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section (Features) -->
-    <section class="benefits">
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Abinks Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Your Profile</h3>
+                        <p>Tell us about your housing preferences, budget, and campus location needs in just 2 minutes.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Browse Matched Listings</h3>
+                        <p>We'll match you with verified properties that meet your criteria near your campus.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Schedule Tours</h3>
+                        <p>Book in-person or virtual tours directly through our platform with instant confirmation.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Apply With One Click</h3>
+                        <p>Submit your application to multiple properties without redundant paperwork or multiple fees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
         <div class="container">
             <h2 class="section-title">Why Students Choose Abinks</h2>
-            <div class="benefits-grid">
+            <div class="benefit-grid">
                 <div class="benefit-card">
-                    <i class="fas fa-search"></i>
-                    <h3>Smart Search</h3>
-                    <p>Find housing that matches your needs with filters for price, distance to campus, amenities, and more.</p>
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Save Money</h3>
+                    <p>No application fees, no broker fees, and exclusive student discounts on select properties.</p>
                 </div>
                 <div class="benefit-card">
                     <i class="fas fa-shield-alt"></i>
@@ -420,15 +156,15 @@
         </div>
     </section>
 
-    <!-- Testimonials Section (Social proof) -->
-    <section class="testimonials">
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
         <div class="container">
             <h2 class="section-title">What Students Say About Us</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <p class="testimonial-quote">"Abinks made finding an apartment near campus so easy! I found a great place within my budget in just two days, and the application process was seamless."</p>
                     <div class="testimonial-author">
-                        <img src="student1.jpg" alt="Student testimonial">
+                        <img src="images/student1.jpg" alt="Student testimonial">
                         <div class="author-info">
                             <h4>Jessica T.</h4>
                             <p>State University, Junior</p>
@@ -438,7 +174,7 @@
                 <div class="testimonial-card">
                     <p class="testimonial-quote">"As an international student, I was worried about finding housing from overseas. Abinks connected me with verified properties and I secured a place before even arriving in the country!"</p>
                     <div class="testimonial-author">
-                        <img src="student2.jpg" alt="Student testimonial">
+                        <img src="images/student2.jpg" alt="Student testimonial">
                         <div class="author-info">
                             <h4>Raj K.</h4>
                             <p>Tech Institute, Freshman</p>
@@ -448,7 +184,7 @@
                 <div class="testimonial-card">
                     <p class="testimonial-quote">"The roommate matching feature was a game-changer. I found someone with similar study habits and interests, and we've become great friends while sharing an awesome apartment."</p>
                     <div class="testimonial-author">
-                        <img src="student3.jpg" alt="Student testimonial">
+                        <img src="images/student3.jpg" alt="Student testimonial">
                         <div class="author-info">
                             <h4>Marcus L.</h4>
                             <p>Liberal Arts College, Sophomore</p>
@@ -525,17 +261,6 @@
         </div>
     </footer>
 
-    <script>
-        // Simple JavaScript for smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
