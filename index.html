@@ -3,146 +3,539 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abinks - Student Housing Solutions</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Abinks | Student Housing Made Simple</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #4285F4;
+            --secondary-color: #34A853;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --accent-color: #FBBC05;
+            --text-color: #4d4d4d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #3367d6;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section - Following Moosend's guidance */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('student-housing-hero.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 6rem 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Form Section - Key conversion point */
+        .signup-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-form h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Benefits Section - Feature highlights */
+        .benefits {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials - Social proof section */
+        .testimonials {
+            padding: 5rem 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+            font-size: 2.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta .btn {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .cta .btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .hero-content,
+            .benefits-grid,
+            .testimonial-grid,
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content,
+            .benefits-grid,
+            .testimonial-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container">
-            <div class="logo">
-                <h1>Abinks</h1>
-            </div>
             <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="survey.html">Housing Survey</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                <div class="logo">
+                    <a href="#"><img src="abinks-logo.png" alt="Abinks Logo"></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">For Universities</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#" class="btn-sm">Login</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Hero Section (Main headline, USP, Hero image) -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Welcome to Abinks</h1>
-                <p>We're dedicated to improving student housing experiences.</p>
-                <a href="survey.html" class="btn">Take Our Survey</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Abinks, a subsidiary of Inkauxano, is dedicated to creating innovative solutions for student housing challenges. Founded in 2019, we've quickly established ourselves as a leader in developing tools that help students find affordable and suitable accommodation.</p>
-                    <p>Our mission is to simplify the housing search process while maintaining affordable prices. We believe in sustainable practices and ethical business operations that benefit the student community.</p>
+                <div class="hero-text">
+                    <h1>Find Your Perfect Student Housing in Minutes</h1>
+                    <p>Abinks connects students with quality housing options near campus. No more stress, no more endless searching - just the perfect place to call home during your college years.</p>
+                    <a href="#signup" class="btn">Get Started Now</a>
                 </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/400x300" alt="About Abinks">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-home"></i>
-                    <h3>Housing Search</h3>
-                    <p>Find the perfect student accommodation that fits your budget and needs.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Roommate Matching</h3>
-                    <p>Connect with compatible roommates to share housing costs.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Mobile App</h3>
-                    <p>Access our housing services on-the-go with our upcoming mobile application.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>info@inkauxano.com</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <p>(+233)243-420-383</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Private Mail Bag, Kwabenya<br>Accra, Ghana</p>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contact-form">
+                <div class="signup-form" id="signup">
+                    <h3>Find Your New Home Today</h3>
+                    <form>
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="university">University/College</label>
+                            <select id="university" required>
+                                <option value="" disabled selected>Select your school</option>
+                                <option value="univ1">State University</option>
+                                <option value="univ2">Tech Institute</option>
+                                <option value="univ3">Liberal Arts College</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="yourname@email.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="move-in">Move-in Date</label>
+                            <input type="date" id="move-in" required>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn" style="width:100%">Find Housing Options</button>
+                        <p class="form-note">We'll email you personalized housing options based on your preferences.</p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Benefits Section (Features) -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Students Choose Abinks</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Smart Search</h3>
+                    <p>Find housing that matches your needs with filters for price, distance to campus, amenities, and more.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Verified Listings</h3>
+                    <p>Every listing is verified by our team to ensure quality, safety, and accurate information.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Easy Applications</h3>
+                    <p>Apply to multiple properties with one application form and track your status in real-time.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-university"></i>
+                    <h3>Campus Proximity</h3>
+                    <p>Find housing options sorted by walking distance to your specific campus buildings.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Roommate Matching</h3>
+                    <p>Our compatibility algorithm helps you find the perfect roommate based on lifestyle and preferences.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Time Saving</h3>
+                    <p>Save an average of 15 hours in your housing search with our streamlined platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (Social proof) -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Students Say About Us</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Abinks made finding an apartment near campus so easy! I found a great place within my budget in just two days, and the application process was seamless."</p>
+                    <div class="testimonial-author">
+                        <img src="student1.jpg" alt="Student testimonial">
+                        <div class="author-info">
+                            <h4>Jessica T.</h4>
+                            <p>State University, Junior</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"As an international student, I was worried about finding housing from overseas. Abinks connected me with verified properties and I secured a place before even arriving in the country!"</p>
+                    <div class="testimonial-author">
+                        <img src="student2.jpg" alt="Student testimonial">
+                        <div class="author-info">
+                            <h4>Raj K.</h4>
+                            <p>Tech Institute, Freshman</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"The roommate matching feature was a game-changer. I found someone with similar study habits and interests, and we've become great friends while sharing an awesome apartment."</p>
+                    <div class="testimonial-author">
+                        <img src="student3.jpg" alt="Student testimonial">
+                        <div class="author-info">
+                            <h4>Marcus L.</h4>
+                            <p>Liberal Arts College, Sophomore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Student Housing?</h2>
+            <p>Join thousands of students who have found their ideal housing through Abinks. Our platform is completely free for students.</p>
+            <a href="#signup" class="btn">Get Started - It's Free</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Abinks</h2>
-                    <p>A subsidiary of Inkauxano</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
+                <div class="footer-column">
+                    <h3>About Abinks</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="survey.html">Survey</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">For Property Managers</a></li>
+                        <li><a href="#">For Universities</a></li>
+                        <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
-                <div class="footer-social">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Student Housing Guide</a></li>
+                        <li><a href="#">Roommate Tips</a></li>
+                        <li><a href="#">Moving Checklist</a></li>
+                        <li><a href="#">Rental Agreement Guide</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Report an Issue</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Get Housing Updates</h4>
+                        <form>
+                            <input type="email" placeholder="Your email">
+                            <button type="submit">Subscribe</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2019 Abinks. All rights reserved.</p>
+                <p>&copy; 2024 Abinks Student Housing Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Simple JavaScript for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
