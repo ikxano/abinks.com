@@ -60,7 +60,4 @@ document.addEventListener('DOMContentLoaded', function() {
             newsletterForm.reset();
         });
     }
-    
-    // Additional interactive features could be added here
-    // For example, form validation, image sliders, etc.
 });
