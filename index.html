@@ -3,34 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dwello | Find Your Perfect Student Housing</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Dwello - Student Housing Made Simple</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/Dwello-logo.png" alt="Dwello Logo">
-                    </a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
     <!-- Hero Section with Strong Headline + USP -->
     <section class="hero" id="signup">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <!-- Strong, clear headline -->
-                    <h1>🏡 Find Your Campus Home with Confidence</h1>
+                    <!-- Strong, clear headline with logo -->
+                    <div class="hero-logo">
+                        <img src="images/dwello-logo.png" alt="Dwello Logo" class="dwello-logo">
+                    </div>
+                    <h1>Find Your Campus Home with Confidence</h1>
                     <!-- Clear USP that addresses pain points -->
                     <p class="hero-tagline">Meet Dwello, the #1 student housing platform that actually works</p>
                     <p>Join 25,000+ students finding perfect places — closer to campus, better roommates, zero stress.</p>
@@ -39,138 +27,150 @@
                         <span>📍 Campus proximity</span>
                         <span>💸 Student budgets</span>
                     </div>
+                    <div class="cta-buttons">
+                        <a href="#signup-form" class="btn">Get Started</a>
+                        <a href="#how-it-works" class="btn-secondary">Learn More</a>
+                    </div>
                     <div class="trust-badges">
                         <span><i class="fas fa-check-circle"></i> 10,000+ verified listings</span>
                         <span><i class="fas fa-check-circle"></i> Trusted by 50+ universities</span>
                         <span><i class="fas fa-check-circle"></i> 4.8/5 student satisfaction</span>
-                        <ul class="nav-links">
-                            <li><a href="#how-it-works">How It Works</a></li>
-                            <li><a href="#benefits">Benefits</a></li>
-                            <li><a href="#testimonials">Testimonials</a></li>
-                            <li><a href="#signup" class="btn-secondary">Get Started</a></li>
-                        </ul>
                     </div>
                 </div>
                 
-                <!-- Optimized signup form with minimal fields -->
-                <div class="signup-form">
-                    <h3>Find Your Perfect Housing Match</h3>
+                <!-- Sign-up form with clear value proposition -->
+                <div class="signup-form" id="signup-form">
+                    <h3>Find Your Perfect Home Near Campus</h3>
                     <form id="housing-search-form">
                         <div class="form-group">
-                            <label for="university">Where do you study?</label>
+                            <label for="university">Your University</label>
                             <select id="university" required>
-                                <option value="" disabled selected>Select your institution</option>
-                                <option value="state-university">University</option>
-                                <option value="tech-institute">Technical University</option>
-                                <option value="nursing-training">Nursing Training College</option>
-                                <option value="vocational-teacher-training">Vocational and Teacher Training College</option>
+                                <option value="">Select your university</option>
+                                <option value="NYU">New York University</option>
+                                <option value="UCLA">UCLA</option>
+                                <option value="UMich">University of Michigan</option>
+                                <option value="UCBerkeley">UC Berkeley</option>
+                                <option value="BU">Boston University</option>
+                                <!-- Add more options as needed -->
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="email">Your email</label>
-                            <input type="email" id="email" placeholder="you@email.com" required>
-                            <p class="form-note">We'll send your personalized matches here</p>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Your email address" required>
+                            <p class="form-note">We'll send housing matches to this email</p>
                         </div>
                         <div class="form-group">
-                            <label for="move-date">Move-in timeframe</label>
+                            <label for="move-date">When do you need to move in?</label>
                             <select id="move-date" required>
-                                <option value="" disabled selected>When do you need housing?</option>
-                                <option value="immediately">Immediately</option>
-                                <option value="next-month">Next Month</option>
-                                <option value="next-semester">Next Semester</option>
-                                <option value="next-year">Next Academic Year</option>
+                                <option value="">Select move-in timeframe</option>
+                                <option value="ASAP">As soon as possible</option>
+                                <option value="1month">Within 1 month</option>
+                                <option value="nextSemester">Next semester</option>
+                                <option value="fallSemester">Fall semester</option>
                             </select>
                         </div>
-                        <!-- Strong, action-oriented CTA -->
                         <button type="submit" class="btn btn-full">Find Housing Now</button>
-                        <p class="privacy-note">No credit card required. By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
+                        <p class="privacy-note">By submitting, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a></p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works - Clear, visual process -->
-    <section class="how-it-works" id="how-it-works">
+    <!-- How It Works Section with clear steps -->
+    <section class="how-it-works section-highlight" id="how-it-works">
         <div class="container">
-            <h2 class="section-title">Handcrafted Housing Solutions for Students</h2>
+            <h2 class="section-title">HOW IT WORKS</h2>
+            <p class="section-subtitle">Finding your ideal student housing in just 4 simple steps</p>
+            
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Tell Us What You Need</h3>
-                        <p>Share your preferences, budget, and campus location in just 2 minutes.</p>
+                        <h3>Create Your Profile</h3>
+                        <p>Tell us about your preferences, budget, and campus location needs.</p>
                     </div>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Get Matched Instantly</h3>
-                        <p>Our algorithm connects you with verified properties that match your criteria.</p>
+                        <h3>Browse Matches</h3>
+                        <p>We'll show you verified listings that match your specific criteria.</p>
                     </div>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Tour Your Favorites</h3>
-                        <p>Schedule in-person or virtual tours directly through our platform.</p>
+                        <h3>Schedule Tours</h3>
+                        <p>Book in-person or virtual tours directly through our platform.</p>
                     </div>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Move In With Ease</h3>
-                        <p>One application works for multiple properties — no duplicate forms or fees.</p>
+                        <h3>Secure Your Home</h3>
+                        <p>Apply online and sign your lease with confidence and clarity.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits/Features with clear value proposition -->
-    <section class="benefits" id="benefits">
+    <!-- Benefits Section showing clear value -->
+    <section class="benefits section-highlight" id="benefits">
         <div class="container">
-            <h2 class="section-title">Our Housing Solutions</h2>
+            <h2 class="section-title">BENEFITS</h2>
+            <p class="section-subtitle">Why thousands of students trust Dwello for their housing needs</p>
+            
             <div class="benefit-grid">
                 <div class="benefit-card">
-                    <i class="fas fa-dollar-sign"></i>
-                    <h3>Budget-Friendly Options</h3>
-                    <p>No application fees, no broker fees, and exclusive student discounts on select properties.</p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Campus Proximity</h3>
+                    <p>All our listings are within walking distance or a quick commute to your campus.</p>
                 </div>
+                
                 <div class="benefit-card">
                     <i class="fas fa-shield-alt"></i>
-                    <h3>Verified Safe Spaces</h3>
-                    <p>Every property is vetted by our team to ensure safety, quality, and accurate information.</p>
+                    <h3>Verified Listings</h3>
+                    <p>Every property is verified by our team to ensure safety, quality, and accuracy.</p>
                 </div>
+                
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Roommate Matching</h3>
+                    <p>Find compatible roommates based on lifestyle, study habits, and preferences.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Student-Friendly Prices</h3>
+                    <p>Options for every budget with transparent pricing and no hidden fees.</p>
+                </div>
+                
                 <div class="benefit-card">
                     <i class="fas fa-file-contract"></i>
-                    <h3>Simplified Applications</h3>
-                    <p>Apply to multiple properties with a single form and track status in real-time.</p>
+                    <h3>Lease Guidance</h3>
+                    <p>We help you understand lease terms and negotiate better conditions.</p>
                 </div>
+                
                 <div class="benefit-card">
-                    <i class="fas fa-university"></i>
-                    <h3>Campus Proximity</h3>
-                    <p>Find housing options sorted by walking distance to your specific campus buildings.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Roommate Matching</h3>
-                    <p>Our compatibility algorithm helps you find the perfect roommate based on lifestyle and preferences.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Time Saving</h3>
-                    <p>Save an average of 15 hours in your housing search with our streamlined platform.</p>
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated support team to assist you throughout your housing journey.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Proof/Testimonials -->
-    <section class="testimonials" id="testimonials">
+    <!-- Testimonials for social proof -->
+    <section class="testimonials section-highlight" id="testimonials">
         <div class="container">
-            <h2 class="section-title">From Students to Students</h2>
-            <p class="section-subtitle">Every housing match carries a story—here are some of our favorites</p>
+            <h2 class="section-title">TESTIMONIALS</h2>
+            <p class="section-subtitle">Hear from students who found their perfect home with Dwello</p>
+            
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="rating">
@@ -180,15 +180,16 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-quote">"I was about to give up on finding affordable housing near campus. Dwello matched me with a perfect apartment in 2 days that I couldn't find anywhere else, and I saved $450 on application fees!"</p>
+                    <p class="testimonial-quote">"I was struggling to find affordable housing near campus until I discovered Dwello. Within a week, I found the perfect apartment and awesome roommates!"</p>
                     <div class="testimonial-author">
-                        <img src="images/student1.jpg" alt="Jessica T., State University">
+                        <img src="images/testimonial-1.jpg" alt="Student testimonial">
                         <div class="author-info">
                             <h4>Jessica T.</h4>
-                            <p>State University, Junior</p>
+                            <p>NYU Sophomore</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="testimonial-card">
                     <div class="rating">
                         <i class="fas fa-star"></i>
@@ -197,29 +198,30 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-quote">"As an international student, finding housing from overseas seemed impossible. Dwello not only found me verified properties, but I was able to secure my apartment before even arriving in the country!"</p>
+                    <p class="testimonial-quote">"The roommate matching feature saved me! After a terrible experience last year, I used Dwello to find roommates with similar study habits and lifestyles."</p>
                     <div class="testimonial-author">
-                        <img src="images/student2.jpg" alt="Raj K., Tech Institute">
-                        <div class="author-info">
-                            <h4>Raj K.</h4>
-                            <p>Tech Institute, Freshman</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-quote">"The roommate matching feature changed everything. After a terrible experience last year, I found someone with my exact study habits and interests. We've become great friends while sharing an awesome apartment."</p>
-                    <div class="testimonial-author">
-                        <img src="images/student3.jpg" alt="Marcus L., Liberal Arts College">
+                        <img src="images/testimonial-2.jpg" alt="Student testimonial">
                         <div class="author-info">
                             <h4>Marcus L.</h4>
-                            <p>Liberal Arts College, Sophomore</p>
+                            <p>UCLA Junior</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-quote">"As an international student, finding housing was incredibly stressful. Dwello made it easy to secure an apartment even before I arrived in the country!"</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-3.jpg" alt="Student testimonial">
+                        <div class="author-info">
+                            <h4>Sophia K.</h4>
+                            <p>UC Berkeley Grad Student</p>
                         </div>
                     </div>
                 </div>
@@ -227,90 +229,81 @@
         </div>
     </section>
 
-    <!-- Strong CTA section -->
-    <section class="cta">
+    <!-- CTA Section -->
+    <section class="cta section-highlight" id="get-started">
         <div class="container">
-            <h2>Ready to Transform Your College Experience?</h2>
-            <p>Discover our collection of student housing options and bring comfort to your academic journey.</p>
-            <a href="#signup" class="btn">Find Your Home Today</a>
+            <h2 class="section-title">GET STARTED</h2>
+            <p>Ready to find your perfect student housing? Join thousands of students who have already found their ideal campus home with Dwello.</p>
+            <a href="#signup" class="btn">Sign Up Now — It's Free</a>
         </div>
     </section>
 
-    <!-- Comprehensive footer with FAQ -->
+    <!-- Footer with resources and important links -->
     <footer>
         <div class="container">
-            <div class="faq-section">
-                <h3>Frequently Asked Questions</h3>
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <h4>Is Dwello really free for students?</h4>
-                        <p>Yes! Dwello is 100% free for students. We make money by charging property managers a small fee when you move in, not from you.</p>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">University Housing</a></li>
+                        <li><a href="#">Off-Campus Options</a></li>
+                        <li><a href="#">Roommate Finder</a></li>
+                        <li><a href="#">Housing Guides</a></li>
+                        <li><a href="#">Rent Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Student Housing Blog</a></li>
+                        <li><a href="#">Rental Guides</a></li>
+                        <li><a href="#">Roommate Agreement</a></li>
+                        <li><a href="#">Tenant Rights</a></li>
+                        <li><a href="#">Safety Checklist</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
                     </div>
-                    <div class="faq-item">
-                        <h4>How soon can I find housing?</h4>
-                        <p>Many students find and secure housing within 48 hours of signing up. For popular areas, we recommend starting your search 2-3 months in advance.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <div class="newsletter">
+                        <h4>Stay Updated</h4>
+                        <p>Get the latest housing options and tips delivered to your inbox.</p>
+                        <form>
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                        </form>
                     </div>
-                    <div class="faq-item">
-                        <h4>What if I don't like my matched properties?</h4>
-                        <p>Our matching algorithm improves with your feedback. If you don't like your initial matches, simply update your preferences and we'll find new options.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h4>How does the roommate matching work?</h4>
-                        <p>Our compatibility algorithm uses a 20-point questionnaire to match you with potential roommates based on lifestyle, study habits, and personal preferences.</p>
+                    
+                    <div class="app-download">
+                        <h4>Download Our App</h4>
+                        <div class="app-buttons">
+                            <a href="#"><img src="images/app-store.png" alt="App Store"></a>
+                            <a href="#"><img src="images/google-play.png" alt="Google Play"></a>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>About Dwello</h3>
-                    <ul>
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">For Property Managers</a></li>
-                        <li><a href="#">For Universities</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Student Housing Guide</a></li>
-                        <li><a href="#">Roommate Tips</a></li>
-                        <li><a href="#">Moving Checklist</a></li>
-                        <li><a href="#">Rental Agreement Guide</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Report an Issue</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Stay Updated</h3>
-                    <div class="newsletter">
-                        <p>Subscribe for new housing alerts and seasonal offerings.</p>
-                        <form>
-                            <input type="email" placeholder="Your email" required>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Dwello Student Housing. All rights reserved.</p>
+                <p>&copy; 2023 Dwello Student Housing. All rights reserved.</p>
             </div>
         </div>
     </footer>
