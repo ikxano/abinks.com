@@ -125,15 +125,15 @@ h1, h2, h3, h4 {
 .hero-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     margin-bottom: 1rem;
-    margin-top: 0; /* Ensure no top margin */
+    margin-top: 0;
 }
 
 .hero-logo {
-    max-width: 35px; /* Reduced by 50% from 70px */
-    padding: 5px; /* Reduced from 8px */
-    border-radius: 3px; /* Reduced from 4px */
+    max-width: 53px;
+    padding: 7px;
+    border-radius: 4px;
     flex-shrink: 0;
 }
 
