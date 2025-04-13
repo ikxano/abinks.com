@@ -146,10 +146,34 @@ header {
     color: white;
 }
 
+.hero-tagline {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
 .hero-text p {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: #eee;
+}
+
+.hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-features span {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent-color);
 }
 
 .trust-badges {
