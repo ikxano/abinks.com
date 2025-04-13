@@ -108,11 +108,11 @@ h1, h2, h3, h4 {
     width: 100%;
 }
 
-/* Hero Section with Dwello Logo */
+/* Hero Section with reduced spacing */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/student-housing-hero.jpg') no-repeat center center/cover;
     color: white;
-    padding: 3rem 0;
+    padding: 1.5rem 0 3rem; /* Reduced top padding significantly */
 }
 
 .hero-content {
@@ -122,19 +122,18 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-/* New hero header layout for logo + headline */
 .hero-header {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
+    margin-top: 0; /* Ensure no top margin */
 }
 
 .hero-logo {
-    max-width: 70px;
-    padding: 8px;
-    border-radius: 4px;
-    display: inline-block;
+    max-width: 35px; /* Reduced by 50% from 70px */
+    padding: 5px; /* Reduced from 8px */
+    border-radius: 3px; /* Reduced from 4px */
     flex-shrink: 0;
 }
 
@@ -145,8 +144,9 @@ h1, h2, h3, h4 {
 }
 
 .hero-text h1 {
-    font-size: 2.2rem;
+    font-size: 2rem; /* Slightly reduced */
     line-height: 1.1;
+    margin-top: 0; /* Ensure no top margin */
     margin-bottom: 0;
     color: white;
 }
@@ -635,13 +635,14 @@ footer {
     }
     
     .hero {
-        padding: 2rem 0;
+        padding: 1rem 0 2rem; /* Even less top padding on mobile */
     }
     
     .hero-header {
         flex-direction: column;
         align-items: center;
         gap: 0.75rem;
+        margin-top: 0;
     }
     
     .hero-text h1 {
