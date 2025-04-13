@@ -113,6 +113,7 @@ h1, h2, h3, h4 {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/student-housing-hero.jpg') no-repeat center center/cover;
     color: white;
     padding: 1.5rem 0 3rem; /* Reduced top padding significantly */
+    background-color: #f5f5f5; /* Added light gray background */
 }
 
 .hero-content {
@@ -138,21 +139,30 @@ h1, h2, h3, h4 {
 }
 
 .dwello-logo {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 500%; /* Increase logo size to 500% */
+    max-width: 800px;
+    margin-bottom: 0.5rem; /* Reduce space below logo */
 }
 
 .hero-text h1 {
-    font-size: 2rem; /* Slightly reduced */
+    font-size: 2rem;
     line-height: 1.1;
-    margin-top: 0; /* Ensure no top margin */
+    margin-top: 0.5rem; /* Reduced space above h1 */
     margin-bottom: 0;
     color: white;
 }
 
+.hero-text h2 {
+    font-weight: 700; /* Bold font */
+    color: #1a73e8; /* Blue color */
+    font-size: 2.2rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem; /* Increase space below h2 */
+}
+
 .hero-tagline {
     font-size: 1.2rem;
+    margin-top: 2.5rem; /* Increase space above the tagline */
     margin-bottom: 0.5rem;
     color: var(--accent-color);
 }
@@ -285,24 +295,31 @@ h1, h2, h3, h4 {
 
 .step {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    flex-direction: row; /* Change from column to row */
+    text-align: left; /* Change from center to left */
 }
 
 .step-number {
-    width: 60px;
-    height: 60px;
-    background-color: var(--accent-color);
-    color: var(--dark-color);
-    border-radius: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1a73e8;
+    color: white;
+    font-weight: bold;
     font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 0; /* Adjusted from 1.5rem */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
     font-family: var(--heading-font);
+}
+
+.step-content {
+    flex: 1;
 }
 
 .step-content h3 {
@@ -660,6 +677,11 @@ footer {
     
     .testimonial-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: row; /* Ensure it stays as row on mobile */
+        align-items: flex-start;
     }
 }
 
