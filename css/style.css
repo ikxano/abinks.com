@@ -125,17 +125,28 @@ h1, h2, h3, h4 {
 
 .hero-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.2rem;
-    margin-bottom: 1rem;
-    margin-top: 0;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
 }
 
 .hero-logo {
-    max-width: 53px;
-    padding: 7px;
-    border-radius: 4px;
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+}
+
+.hero .devices-preview {
+    flex: 0 0 auto;
+    max-width: 50%;
+    margin: 0;
+}
+
+.hero .responsive-image {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
 }
 
 .dwello-logo {
@@ -600,27 +611,7 @@ footer {
 
 /* Hero benefits styling */
 .hero-benefits {
-    margin: 2rem 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.benefit-item {
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.benefit-item:hover {
-    transform: translateY(-5px);
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.hero .section-title {
-    color: white;
-    margin: 2rem 0 1rem;
+    display: none;
 }
 
 /* Get Started Section Styles */
@@ -655,15 +646,15 @@ footer {
 
 /* Improved devices preview */
 .hero .devices-preview {
-    max-width: 100%;
-    margin: 0 auto;
-    text-align: center;
+    flex: 0 0 auto;
+    max-width: 50%;
+    margin: 0;
 }
 
 .hero .responsive-image {
     max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
 }
 
@@ -759,8 +750,7 @@ footer {
     .hero-header {
         flex-direction: column;
         align-items: center;
-        gap: 0.75rem;
-        margin-top: 0;
+        gap: 1rem;
     }
     
     .hero-text h1 {
@@ -800,6 +790,16 @@ footer {
     .hero-features {
         justify-content: center;
     }
+    
+    .get-started-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .get-started-header .devices-preview {
+        max-width: 80%;
+    }
 }
 
 @media (max-width: 576px) {
@@ -837,5 +837,36 @@ footer {
     .newsletter form {
         max-width: 300px;
         margin: 0 auto;
+    }
+}
+
+/* Get Started header styling */
+.get-started-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.get-started-header .logo {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+}
+
+.get-started-header .devices-preview {
+    flex: 0 0 auto;
+    max-width: 50%;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .get-started-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .get-started-header .devices-preview {
+        max-width: 80%;
     }
 }
