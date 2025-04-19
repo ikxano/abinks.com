@@ -161,10 +161,10 @@ h1, h2, h3, h4 {
 }
 
 .hero-tagline {
-    font-size: 1.2rem;
-    margin-top: 2.5rem; /* Increase space above the tagline */
-    margin-bottom: 0.5rem;
-    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin: 1rem 0 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
 }
 
 .hero-text p {
@@ -177,17 +177,23 @@ h1, h2, h3, h4 {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-bottom: 1rem;
+    margin: 1.5rem 0;
 }
 
 .hero-features span {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    padding: 0.3rem 0.75rem;
+    padding: 0.5rem 1rem;
     border-radius: 30px;
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--accent-color);
+}
+
+.hero-features i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
 }
 
 .cta-buttons {
@@ -595,27 +601,21 @@ footer {
 /* Hero benefits styling */
 .hero-benefits {
     margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
 .benefit-item {
-    margin-bottom: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-.benefit-item i {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.benefit-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.benefit-item p {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+.benefit-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .hero .section-title {
@@ -651,6 +651,33 @@ footer {
     max-width: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Improved devices preview */
+.hero .devices-preview {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero .responsive-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.hero .responsive-image:hover {
+    transform: translateY(-5px);
+}
+
+/* Mobile RTL support for Arabic/RTL languages */
+.mobile-rtl {
+    text-align: left;
+}
+
+.mobile-rtl-item {
+    text-align: left;
 }
 
 /* Responsive Design */
@@ -696,6 +723,15 @@ footer {
     
     .get-started-content {
         grid-template-columns: 1fr;
+    }
+    
+    .hero-benefits {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .hero .devices-preview {
+        max-width: 80%;
+        margin: 2rem auto 0;
     }
 }
 
@@ -747,6 +783,22 @@ footer {
     .step {
         flex-direction: row; /* Ensure it stays as row on mobile */
         align-items: flex-start;
+    }
+    
+    .hero-benefits {
+        grid-template-columns: 1fr;
+    }
+    
+    .mobile-rtl {
+        text-align: center;
+    }
+    
+    .mobile-rtl-item {
+        text-align: center;
+    }
+    
+    .hero-features {
+        justify-content: center;
     }
 }
 
