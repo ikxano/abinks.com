@@ -120,7 +120,11 @@ h1, h2, h3, h4 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    align-items: center;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
 }
 
 .hero-logo {
@@ -128,10 +132,11 @@ h1, h2, h3, h4 {
 }
 
 .hero .devices-preview {
+    padding-top: 75px; /* Aligns with the heading text */
     max-width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .hero .responsive-image {
@@ -676,6 +681,8 @@ footer {
     .hero .devices-preview {
         grid-row: 1;
         margin-bottom: 1.5rem;
+        padding-top: 0; /* Remove padding on mobile */
+        justify-content: center;
     }
     
     .hero-text {
