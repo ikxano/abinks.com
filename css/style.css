@@ -120,7 +120,7 @@ h1, h2, h3, h4 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    align-items: start; /* Align items at the top */
+    align-items: start;
 }
 
 .hero-text {
@@ -132,9 +132,10 @@ h1, h2, h3, h4 {
     margin-bottom: 1.5rem;
 }
 
-/* Remove padding-top and adjust position to align with heading */
+/* Remove the devices-preview from normal flow and position it */
 .hero .devices-preview {
-    padding-top: 90px; /* Adjust this value to match exactly with the heading */
+    position: relative;
+    top: 135px; /* This positions it at the same level as the heading */
     max-width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -684,9 +685,10 @@ footer {
     }
     
     .hero .devices-preview {
+        position: static;
+        top: auto;
         grid-row: 1;
         margin-bottom: 1.5rem;
-        padding-top: 0; /* Remove padding on mobile */
         justify-content: center;
     }
     
