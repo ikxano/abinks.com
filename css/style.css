@@ -592,6 +592,67 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Hero benefits styling */
+.hero-benefits {
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    margin-bottom: 1.5rem;
+}
+
+.benefit-item i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.benefit-item p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero .section-title {
+    color: white;
+    margin: 2rem 0 1rem;
+}
+
+/* Get Started Section Styles */
+.get-started-section {
+    padding: 3rem 0;
+    background-color: var(--light-color);
+}
+
+.get-started-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.get-started-text h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.devices-preview {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.responsive-image {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .hero-content {
@@ -631,6 +692,10 @@ footer {
     
     .footer-content {
         grid-template-columns: 1fr 1fr;
+    }
+    
+    .get-started-content {
+        grid-template-columns: 1fr;
     }
 }
 

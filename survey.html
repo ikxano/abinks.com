@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Housing Survey - Dwello</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -24,6 +25,59 @@
         </div>
     </header>
 
+    <!-- Added Get Started Section -->
+    <section class="get-started-section">
+        <div class="container">
+            <div class="get-started-content">
+                <div class="get-started-text">
+                    <h2>Find the perfect student housing solution</h2>
+                    <p>Join 25,000+ students who found their ideal housing situation through Dwello.</p>
+                    <div class="devices-preview">
+                        <img src="images/dwello-website-image.png" alt="Dwello on multiple devices" class="responsive-image">
+                    </div>
+                </div>
+                
+                <div class="signup-form">
+                    <h3>Get Started Today</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Your .edu email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="university">University</label>
+                            <select id="university" required>
+                                <option value="" disabled selected>Select your university</option>
+                                <option value="university1">State University</option>
+                                <option value="university2">Ohio State University</option>
+                                <option value="university3">UCLA</option>
+                                <option value="university4">NYU</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="housing-type">I'm looking for</label>
+                            <select id="housing-type" required>
+                                <option value="" disabled selected>Select housing type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="roommate">Roommate</option>
+                                <option value="sublet">Sublet</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-full">CREATE FREE ACCOUNT</button>
+                        <p class="form-note">Find housing in less than 48 hours!</p>
+                        <p class="privacy-note">By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="survey-intro">
         <div class="container">
             <h1>Student Housing Satisfaction Survey</h1>
@@ -41,12 +95,12 @@
                         <input type="text" id="fullname" name="fullname" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="survey-email">Email Address</label>
+                        <input type="email" id="survey-email" name="survey-email" required>
                     </div>
                     <div class="form-group">
-                        <label for="university">University/College</label>
-                        <input type="text" id="university" name="university" required>
+                        <label for="university-name">University/College</label>
+                        <input type="text" id="university-name" name="university-name" required>
                     </div>
                     <div class="form-group">
                         <label for="year">Year of Study</label>
