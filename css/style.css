@@ -121,6 +121,7 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
+    padding-top: 1rem; /* Add some padding at the top */
 }
 
 .hero-text {
@@ -129,7 +130,14 @@ h1, h2, h3, h4 {
 }
 
 .hero-logo {
+    max-width: 150px; /* Adjust this value to resize the logo */
     margin-bottom: 1.5rem;
+}
+
+.hero-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Remove the devices-preview from normal flow and position it */
@@ -682,6 +690,10 @@ footer {
 @media (max-width: 992px) {
     .hero-content {
         grid-template-columns: 1fr;
+    }
+    
+    .hero-logo {
+        margin: 0 auto 1.5rem;
     }
     
     .hero .devices-preview {
