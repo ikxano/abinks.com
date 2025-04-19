@@ -121,7 +121,7 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
-    padding-top: 1rem; /* Add some padding at the top */
+    padding-top: 1rem;
 }
 
 .hero-text {
@@ -130,7 +130,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-logo {
-    max-width: 150px; /* Adjust this value to resize the logo */
+    max-width: 150px;
     margin-bottom: 1.5rem;
 }
 
@@ -140,10 +140,10 @@ h1, h2, h3, h4 {
     display: block;
 }
 
-/* Remove the devices-preview from normal flow and position it */
+/* Adjust the device preview position to match with the heading */
 .hero .devices-preview {
     position: relative;
-    top: 135px; /* This positions it at the same level as the heading */
+    top: 135px;
     max-width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -686,165 +686,58 @@ footer {
     text-align: left;
 }
 
-/* Responsive Design */
+/* Responsive adjustments - updated for proper ordering on mobile */
 @media (max-width: 992px) {
     .hero-content {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
     }
     
     .hero-logo {
         margin: 0 auto 1.5rem;
     }
     
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        order: 1;
+    }
+    
+    .hero-text h1,
+    .hero-text h2,
+    .hero-text .hero-tagline {
+        order: 1;
+    }
+    
     .hero .devices-preview {
         position: static;
         top: auto;
-        grid-row: 1;
-        margin-bottom: 1.5rem;
+        width: 100%;
+        margin: 1.5rem auto;
         justify-content: center;
-    }
-    
-    .hero-text {
-        grid-row: 2;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-    
-    .nav-links {
-        margin-top: 1rem;
-    }
-    
-    .nav-links li {
-        margin: 0 0.5rem;
-    }
-    
-    .steps {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero {
-        padding: 1rem 0 2rem; /* Even less top padding on mobile */
-    }
-    
-    .hero-text h1 {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-    
-    .hero-tagline {
-        font-size: 1.1rem;
-    }
-    
-    .btn, .btn-secondary {
-        padding: 10px 20px;
-    }
-    
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .step {
-        flex-direction: row; /* Ensure it stays as row on mobile */
-        align-items: flex-start;
-    }
-    
-    .hero-benefits {
-        grid-template-columns: 1fr;
-    }
-    
-    .mobile-rtl {
-        text-align: center;
-    }
-    
-    .mobile-rtl-item {
-        text-align: center;
+        order: 2;
     }
     
     .hero-features {
+        order: 3;
         justify-content: center;
+        margin-top: 1rem;
     }
     
-    .get-started-header {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .get-started-header .devices-preview {
-        max-width: 80%;
+    .section-title,
+    .btn {
+        order: 4;
     }
 }
 
+/* Additional tweaks for smaller mobile devices */
 @media (max-width: 576px) {
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+    .hero-content {
+        padding-top: 0.5rem;
     }
     
-    .nav-links li {
-        margin: 0.5rem;
-    }
-    
-    .benefit-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .footer-column h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    .newsletter form {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-}
-
-/* Get Started header styling */
-.get-started-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.get-started-header .logo {
-    flex: 0 0 auto;
-    margin-right: 1rem;
-}
-
-.get-started-header .devices-preview {
-    flex: 0 0 auto;
-    max-width: 50%;
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    .get-started-header {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .get-started-header .devices-preview {
-        max-width: 80%;
+    .hero-logo {
+        max-width: 120px;
     }
 }
