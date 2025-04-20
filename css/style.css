@@ -19,8 +19,8 @@
 body {
     font-family: var(--body-font);
     line-height: 1.5;
-    color: var(--text-color);
-    background-color: var(--light-color);
+    color: #333;
+    background-color: #f8f9fa; /* Light, friendly background color */
     padding-top: 0;
 }
 
@@ -115,25 +115,31 @@ h1, h2, h3, h4 {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/student-housing-hero.jpg') no-repeat center center/cover;
     color: white;
     padding: 1.5rem 0 3rem; /* Reduced top padding significantly */
-    background-color: #f5f5f5; /* Added light gray background */
+    background-color: #f0f4f8; /* Softer blue-tinted background */
 }
 
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-template-areas: 
+        "text image"
+        "features image"
+        "success-stories success-stories"
+        "cta cta";
+    gap: 1.5rem;
     align-items: start;
     padding-top: 0.5rem;
 }
 
 .hero-text {
+    grid-area: text;
     display: flex;
     flex-direction: column;
 }
 
 .hero-logo {
-    max-width: 150px;
-    margin-bottom: 0.75rem;
+    max-width: 120px; /* Smaller logo */
+    margin-bottom: 0.5rem; /* Less space below logo */
 }
 
 .hero-logo img {
@@ -144,8 +150,9 @@ h1, h2, h3, h4 {
 
 /* Adjust the device preview position to match with the heading */
 .hero .devices-preview {
+    grid-area: image;
     position: relative;
-    top: 135px;
+    top: 90px; /* Adjusted to align with heading */
     max-width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -173,18 +180,22 @@ h1, h2, h3, h4 {
 }
 
 .hero-text h1 {
-    margin-top: 0;
-    margin-bottom: 1rem; /* Restored to original */
+    font-weight: 700; /* Bolder text */
+    color: #2a4365; /* Friendly, darker blue color */
+    margin-bottom: 0.5rem; /* Less space below */
+    font-size: 2.2rem; /* Slightly larger */
 }
 
 .hero-text h2 {
     margin-top: 0;
-    margin-bottom: 1rem; /* Restored to original */
+    margin-bottom: 0.5rem; /* Reduced space */
+    color: #2d3748; /* Slightly softer color */
 }
 
 .hero-tagline {
     margin-top: 0;
-    margin-bottom: 1.5rem; /* Restored to original */
+    margin-bottom: 0.75rem; /* Reduced space */
+    line-height: 1.5; /* Better readability */
 }
 
 .hero-text p {
@@ -194,11 +205,12 @@ h1, h2, h3, h4 {
 }
 
 .hero-features {
-    margin-top: 1rem; /* Restored to original */
-    margin-bottom: 1.5rem; /* Restored to original */
+    grid-area: features;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem; /* Restored to original */
+    gap: 0.5rem;
 }
 
 .hero-features span {
@@ -690,17 +702,16 @@ footer {
     }
     
     .hero-logo {
-        margin: 0 auto 0.75rem;
+        margin: 0 auto 0.5rem;
     }
     
     .hero-text {
         display: flex;
         flex-direction: column;
         text-align: center;
-        order: 1;
     }
     
-    /* Reorder elements for mobile display */
+    /* Reorder elements for mobile */
     .hero-text h1,
     .hero-text h2,
     .hero-text .hero-tagline {
@@ -710,23 +721,23 @@ footer {
     .hero-features {
         order: 2;
         justify-content: center;
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
     }
     
     .hero .devices-preview {
         position: static;
         top: auto;
         width: 100%;
-        margin: 1.5rem auto;
+        margin: 0 auto 1rem;
         justify-content: center;
-        order: 3;
+        order: 3; /* Position image before success stories */
     }
     
     .section-title {
         order: 4;
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
     }
     
     .btn {
@@ -759,12 +770,12 @@ footer {
 
 /* Additional tweaks for smaller mobile devices */
 @media (max-width: 576px) {
-    .hero-content {
-        padding-top: 0.5rem;
+    .hero-logo {
+        max-width: 100px; /* Even smaller on mobile */
     }
     
-    .hero-logo {
-        max-width: 120px;
+    .hero-text h1 {
+        font-size: 1.8rem;
     }
     
     /* Reduce padding and margin on mobile */
