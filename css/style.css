@@ -59,7 +59,8 @@ h1, h2, h3, h4 {
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
     color: var(--primary-color);
     letter-spacing: 2px;
 }
@@ -172,26 +173,18 @@ h1, h2, h3, h4 {
 }
 
 .hero-text h1 {
-    font-size: 2rem;
-    line-height: 1.1;
-    margin-top: 0.5rem; /* Reduced space above h1 */
-    margin-bottom: 0;
-    color: white;
+    margin-top: 0;
+    margin-bottom: 0.5rem; /* Reduced from default */
 }
 
 .hero-text h2 {
-    font-weight: 700; /* Bold font */
-    color: #1a73e8; /* Blue color */
-    font-size: 2.2rem;
-    margin-top: 1rem;
-    margin-bottom: 2.5rem; /* Increase space below h2 */
+    margin-top: 0;
+    margin-bottom: 0.5rem; /* Reduced from default */
 }
 
 .hero-tagline {
-    font-size: 1.1rem;
-    margin: 1rem 0 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 0.75rem; /* Reduced from default */
 }
 
 .hero-text p {
@@ -201,10 +194,11 @@ h1, h2, h3, h4 {
 }
 
 .hero-features {
+    margin-top: 0.5rem; /* Reduced from default */
+    margin-bottom: 0.75rem; /* Reduced from default */
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin: 1.5rem 0;
+    gap: 0.5rem; /* Smaller gap between feature items */
 }
 
 .hero-features span {
@@ -715,22 +709,23 @@ footer {
     .hero-features {
         order: 2;
         justify-content: center;
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
+        margin-top: 0.4rem;
+        margin-bottom: 0.6rem;
     }
     
     .hero .devices-preview {
         position: static;
         top: auto;
         width: 100%;
-        margin: 0 auto 1.5rem;
+        margin: 1.5rem auto;
         justify-content: center;
         order: 3;
     }
     
     .section-title {
         order: 4;
-        margin-top: 1rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
     }
     
     .btn {
@@ -750,6 +745,15 @@ footer {
     .hero-features {
         justify-content: center;
     }
+    
+    .hero-text h1,
+    .hero-text h2 {
+        margin-bottom: 0.4rem; /* Even smaller on mobile */
+    }
+    
+    .hero-tagline {
+        margin-bottom: 0.6rem; /* Even smaller on mobile */
+    }
 }
 
 /* Additional tweaks for smaller mobile devices */
@@ -767,13 +771,13 @@ footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.5rem;
-        margin: 1rem 0;
+        gap: 0.3rem; /* Even smaller gap on very small screens */
+        margin: 0.5rem 0;
     }
     
     .hero-features span {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.6rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
     }
     
     /* Make sure text doesn't overflow */
@@ -940,7 +944,7 @@ header .logo {
     .hero-features {
         order: 3;
         justify-content: center;
-        margin-top: 1rem;
+        margin-top: 0.4rem;
     }
     
     .section-title,
