@@ -179,16 +179,16 @@ h1, h2, h3, h4 {
 }
 
 .hero-text h1 {
-    font-weight: 700; /* Bolder text */
-    color: #2a4365; /* Friendly, darker blue color */
-    margin-bottom: 0.5rem; /* Less space below */
-    font-size: 2.2rem; /* Slightly larger */
+    font-weight: 700;
+    color: #2a4365;
+    margin-bottom: 0.2rem; /* Reduced from 0.5rem to 0.2rem for tighter spacing */
+    font-size: 2.2rem;
 }
 
 .hero-text h2 {
     margin-top: 0;
-    margin-bottom: 0.5rem; /* Reduced space */
-    color: #2d3748; /* Slightly softer color */
+    margin-bottom: 0.5rem;
+    color: #2d3748;
 }
 
 .hero-tagline {
@@ -830,6 +830,15 @@ footer {
     .hero .devices-preview {
         max-width: 100%;
         overflow: hidden;
+    }
+    
+    .hero-text h1 {
+        margin-bottom: 0.1rem; /* Even tighter on mobile */
+    }
+    
+    .hero-text h2 {
+        margin-top: 0;
+        margin-bottom: 0.4rem;
     }
 }
 
