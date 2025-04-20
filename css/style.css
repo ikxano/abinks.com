@@ -686,7 +686,160 @@ footer {
     text-align: left;
 }
 
-/* Responsive adjustments - updated for proper ordering on mobile */
+/* Responsive adjustments for mobile devices */
+@media (max-width: 992px) {
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-logo {
+        margin: 0 auto 1.5rem;
+    }
+    
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        order: 1;
+    }
+    
+    /* Reorder elements for mobile display */
+    .hero-text h1,
+    .hero-text h2,
+    .hero-text .hero-tagline {
+        order: 1;
+    }
+    
+    .hero-features {
+        order: 2;
+        justify-content: center;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero .devices-preview {
+        position: static;
+        top: auto;
+        width: 100%;
+        margin: 0 auto 1.5rem;
+        justify-content: center;
+        order: 3;
+    }
+    
+    .section-title {
+        order: 4;
+        margin-top: 1rem;
+    }
+    
+    .btn {
+        order: 5;
+    }
+    
+    .signup-wrapper {
+        padding: 0 1rem;
+    }
+    
+    /* Ensure RTL items are properly aligned on mobile */
+    .mobile-rtl,
+    .mobile-rtl-item {
+        text-align: center;
+    }
+    
+    .hero-features {
+        justify-content: center;
+    }
+}
+
+/* Additional tweaks for smaller mobile devices */
+@media (max-width: 576px) {
+    .hero-content {
+        padding-top: 0.5rem;
+    }
+    
+    .hero-logo {
+        max-width: 120px;
+    }
+}
+
+/* Header logo styling */
+.header-logo {
+    max-width: 120px;
+    height: auto;
+}
+
+/* Hero section for survey page */
+.survey-hero {
+    padding-bottom: 2rem; /* Less padding on bottom for survey page */
+}
+
+/* Signup section styling */
+.signup-section {
+    background-color: white;
+    padding: 3rem 0;
+}
+
+.signup-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Make the form more prominent */
+.signup-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Consistency between pages */
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* For the header logo container */
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Hero consistency between pages */
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    padding-top: 1rem;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-logo {
+    max-width: 150px;
+    margin-bottom: 1.5rem;
+}
+
+.hero .devices-preview {
+    position: relative;
+    top: 135px;
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Responsive styles */
 @media (max-width: 992px) {
     .hero-content {
         display: flex;
@@ -729,15 +882,8 @@ footer {
     .btn {
         order: 4;
     }
-}
-
-/* Additional tweaks for smaller mobile devices */
-@media (max-width: 576px) {
-    .hero-content {
-        padding-top: 0.5rem;
-    }
     
-    .hero-logo {
-        max-width: 120px;
+    .signup-wrapper {
+        padding: 0 1rem;
     }
 }
