@@ -59,8 +59,8 @@ h1, h2, h3, h4 {
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
     letter-spacing: 2px;
 }
@@ -123,7 +123,7 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
 }
 
 .hero-text {
@@ -133,7 +133,7 @@ h1, h2, h3, h4 {
 
 .hero-logo {
     max-width: 150px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .hero-logo img {
@@ -174,17 +174,17 @@ h1, h2, h3, h4 {
 
 .hero-text h1 {
     margin-top: 0;
-    margin-bottom: 0.5rem; /* Reduced from default */
+    margin-bottom: 1rem; /* Restored to original */
 }
 
 .hero-text h2 {
     margin-top: 0;
-    margin-bottom: 0.5rem; /* Reduced from default */
+    margin-bottom: 1rem; /* Restored to original */
 }
 
 .hero-tagline {
     margin-top: 0;
-    margin-bottom: 0.75rem; /* Reduced from default */
+    margin-bottom: 1.5rem; /* Restored to original */
 }
 
 .hero-text p {
@@ -194,11 +194,11 @@ h1, h2, h3, h4 {
 }
 
 .hero-features {
-    margin-top: 0.5rem; /* Reduced from default */
-    margin-bottom: 0.75rem; /* Reduced from default */
+    margin-top: 1rem; /* Restored to original */
+    margin-bottom: 1.5rem; /* Restored to original */
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem; /* Smaller gap between feature items */
+    gap: 0.75rem; /* Restored to original */
 }
 
 .hero-features span {
@@ -686,10 +686,11 @@ footer {
     .hero-content {
         display: flex;
         flex-direction: column;
+        padding-top: 0.25rem;
     }
     
     .hero-logo {
-        margin: 0 auto 1.5rem;
+        margin: 0 auto 0.75rem;
     }
     
     .hero-text {
@@ -709,8 +710,8 @@ footer {
     .hero-features {
         order: 2;
         justify-content: center;
-        margin-top: 0.4rem;
-        margin-bottom: 0.6rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
     }
     
     .hero .devices-preview {
@@ -724,8 +725,8 @@ footer {
     
     .section-title {
         order: 4;
-        margin-top: 0.6rem;
-        margin-bottom: 0.6rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
     }
     
     .btn {
@@ -748,11 +749,11 @@ footer {
     
     .hero-text h1,
     .hero-text h2 {
-        margin-bottom: 0.4rem; /* Even smaller on mobile */
+        margin-bottom: 1rem; /* Restored to original */
     }
     
     .hero-tagline {
-        margin-bottom: 0.6rem; /* Even smaller on mobile */
+        margin-bottom: 1.5rem; /* Restored to original */
     }
 }
 
@@ -771,13 +772,13 @@ footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.3rem; /* Even smaller gap on very small screens */
-        margin: 0.5rem 0;
+        gap: 0.75rem; /* Restored to original */
+        margin: 1rem 0;
     }
     
     .hero-features span {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
     }
     
     /* Make sure text doesn't overflow */
@@ -887,7 +888,7 @@ header .logo {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
 }
 
 .hero-text {
@@ -897,7 +898,7 @@ header .logo {
 
 .hero-logo {
     max-width: 150px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .hero .devices-preview {
@@ -913,10 +914,11 @@ header .logo {
     .hero-content {
         display: flex;
         flex-direction: column;
+        padding-top: 0.25rem;
     }
     
     .hero-logo {
-        margin: 0 auto 1.5rem;
+        margin: 0 auto 0.75rem;
     }
     
     .hero-text {
@@ -944,7 +946,7 @@ header .logo {
     .hero-features {
         order: 3;
         justify-content: center;
-        margin-top: 0.4rem;
+        margin-top: 1rem;
     }
     
     .section-title,
