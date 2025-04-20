@@ -25,10 +25,11 @@ body {
 }
 
 .container {
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
+    padding: 0 20px;
     margin: 0 auto;
-    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 h1, h2, h3, h4 {
@@ -760,6 +761,70 @@ footer {
     .hero-logo {
         max-width: 120px;
     }
+    
+    /* Reduce padding and margin on mobile */
+    .hero-features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 1rem 0;
+    }
+    
+    .hero-features span {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    /* Make sure text doesn't overflow */
+    h1 {
+        font-size: 1.8rem;
+        word-wrap: break-word;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+        word-wrap: break-word;
+    }
+    
+    p {
+        word-wrap: break-word;
+    }
+    
+    /* Ensure footer columns stack properly on mobile */
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Adjust form elements on small screens */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Adjust testimonial cards on mobile */
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Make sure benefit cards and step items stack properly */
+@media (max-width: 768px) {
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .steps {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Address any specific elements that might cause overflow */
+    .hero .devices-preview {
+        max-width: 100%;
+        overflow: hidden;
+    }
 }
 
 /* Header logo styling */
@@ -886,4 +951,22 @@ header .logo {
     .signup-wrapper {
         padding: 0 1rem;
     }
+}
+
+/* Prevent horizontal scrolling on mobile */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Ensure images don't cause overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
 }
