@@ -124,7 +124,6 @@ h1, h2, h3, h4 {
     grid-template-areas: 
         "text image"
         "features image"
-        "success-stories success-stories"
         "cta cta";
     gap: 1.5rem;
     align-items: start;
@@ -731,21 +730,12 @@ footer {
         width: 100%;
         margin: 0 auto 1rem;
         justify-content: center;
-        order: 3; /* Position image before success stories */
-    }
-    
-    .section-title {
-        order: 4;
-        margin-top: 0.75rem;
-        margin-bottom: 0.75rem;
+        order: 3; /* Position image before button */
     }
     
     .btn {
         order: 5;
-    }
-    
-    .signup-wrapper {
-        padding: 0 1rem;
+        margin-top: 0; /* Reset margin on mobile */
     }
     
     /* Ensure RTL items are properly aligned on mobile */
@@ -986,4 +976,98 @@ img {
 .responsive-image {
     max-width: 100%;
     height: auto;
+}
+
+/* Hide the Student Success Stories section */
+.hero-text .section-title {
+    display: none; /* Hide the section title */
+}
+
+/* Update grid layout to account for removed section */
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "text image"
+        "features image"
+        "cta cta";
+    gap: 1.5rem;
+    align-items: start;
+    padding-top: 0.5rem;
+}
+
+.hero-text {
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-features {
+    grid-area: features;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.hero .devices-preview {
+    grid-area: image;
+    position: relative;
+    top: 90px; /* Adjusted to align with heading */
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn {
+    grid-area: cta;
+    margin-top: 1rem; /* Add some space above the button */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.25rem;
+    }
+    
+    .hero-logo {
+        margin: 0 auto 0.5rem;
+    }
+    
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Reorder elements for mobile */
+    .hero-text h1,
+    .hero-text h2,
+    .hero-text .hero-tagline {
+        order: 1;
+    }
+    
+    .hero-features {
+        order: 2;
+        justify-content: center;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero .devices-preview {
+        position: static;
+        top: auto;
+        width: 100%;
+        margin: 0 auto 1rem;
+        justify-content: center;
+        order: 3; /* Position image before button */
+    }
+    
+    .btn {
+        order: 5;
+        margin-top: 0; /* Reset margin on mobile */
+    }
 }
