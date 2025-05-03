@@ -219,9 +219,114 @@
                             </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                        <!-- Survey Question 4 - Radio buttons -->
+                        <div class="form-group survey-question">
+                            <label class="question-label">4. If an app could help you find and book a suitable hostel quickly and easily, would you use it?</label>
+                            <p class="select-hint">(Select one)</p>
+                            
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="q4-yes" name="use-app" value="yes-definitely" required>
+                                    <label for="q4-yes">Yes, definitely</label>
+                                </div>
+                                
+                                <div class="radio-item">
+                                    <input type="radio" id="q4-maybe" name="use-app" value="maybe">
+                                    <label for="q4-maybe">Maybe, if it has the right features</label>
+                                </div>
+                                
+                                <div class="radio-item">
+                                    <input type="radio" id="q4-no" name="use-app" value="no">
+                                    <label for="q4-no">No, I prefer other methods</label>
+                                </div>
+                                
+                                <div class="radio-item">
+                                    <input type="radio" id="q4-notsure" name="use-app" value="not-sure">
+                                    <label for="q4-notsure">Not sure</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Survey Question 5 -->
+                        <div class="form-group survey-question">
+                            <label class="question-label">5. What features would matter most to you in a hostel-finder app?</label>
+                            <p class="select-hint">(Select all that apply)</p>
+                            
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-search" name="app-features" value="search-filter">
+                                    <label for="q5-search">Search and filter hostels by location, price, and amenities</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-realtime" name="app-features" value="realtime">
+                                    <label for="q5-realtime">Real-time availability and instant booking</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-photos" name="app-features" value="verified-photos">
+                                    <label for="q5-photos">Verified photos and room details</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-reviews" name="app-features" value="user-reviews">
+                                    <label for="q5-reviews">User reviews and ratings</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-payment" name="app-features" value="payment">
+                                    <label for="q5-payment">Online rent/payment options</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-roommate" name="app-features" value="roommate">
+                                    <label for="q5-roommate">Roommate preference filters</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-chat" name="app-features" value="in-app-chat">
+                                    <label for="q5-chat">In-app chat with hostel management</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-maintenance" name="app-features" value="maintenance">
+                                    <label for="q5-maintenance">Maintenance request and tracking</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-notifications" name="app-features" value="notifications">
+                                    <label for="q5-notifications">Notifications for rent, updates, or announcements</label>
+                                </div>
+                                
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="q5-community" name="app-features" value="community">
+                                    <label for="q5-community">Digital notice board and community forum</label>
+                                </div>
+                                
+                                <div class="checkbox-item other-option">
+                                    <input type="checkbox" id="q5-other" name="app-features" value="other">
+                                    <label for="q5-other">Other:</label>
+                                    <input type="text" id="q5-other-text" name="app-features-other" class="other-input">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- App Launch Notification Section -->
+                        <div class="form-group survey-question">
+                            <label class="question-label">Would you like to be the first to know when the app goes live?</label>
+                            <p class="select-hint">Leave your contact details below and we'll notify you as soon as it's available!</p>
+                            
+                            <div class="form-group">
+                                <label for="notify-email">Email address:</label>
+                                <input type="email" id="notify-email" name="notify-email" placeholder="Your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone number (optional):</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                            </div>
+                            
+                            <p class="privacy-note">We'll only use your contact information to share app updates. No spam, we promise!</p>
                         </div>
                         
                         <button type="submit" class="btn primary-btn survey-submit">Join the Waitlist</button>

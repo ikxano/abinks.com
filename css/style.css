@@ -1083,22 +1083,31 @@ img {
 
 /* Labs-style framework (Google Labs inspired) */
 .labs-style {
-    background-color: #002663; /* American Express blue */
+    background: linear-gradient(to right, 
+        #001c4c 0%, /* Darker blue from navbar */
+        #001c4c 33.33%, /* Extend to exactly 1/3 of the page */
+        #002663 33.33%, /* American Express blue starts */
+        #002663 100%); /* Fill the rest with American Express blue */
     color: #ffffff;
     font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header styling */
 .labs-header {
     padding: 0.75rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #001c4c; /* Slightly darker blue for navbar */
+    background-color: #001c4c; /* Keep navbar color consistent */
+    position: relative;
 }
 
 .container {
+    position: relative;
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    z-index: 1; /* Ensure content is above background */
 }
 
 .header-content {
@@ -1133,6 +1142,8 @@ img {
 }
 
 .labs-content {
+    position: relative;
+    z-index: 2;
     max-width: 600px;
     margin: 0 auto 3rem;
 }
@@ -1504,4 +1515,45 @@ img {
         margin-left: 2rem;
         margin-top: 0.5rem;
     }
+}
+
+/* Split background design - dark blue on left 1/3 */
+body.labs-style {
+    background: linear-gradient(to right, 
+        #001c4c 0%, /* Darker blue from navbar */
+        #001c4c 33.33%, /* Extend to exactly 1/3 of the page */
+        #002663 33.33%, /* American Express blue starts */
+        #002663 100%); /* Fill the rest with American Express blue */
+    color: #ffffff;
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Adjust container to work well with the split background */
+.container {
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    z-index: 1; /* Ensure content is above background */
+}
+
+/* Adjust header to match the darker blue background */
+.labs-header {
+    background-color: #001c4c; /* Keep navbar color consistent */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* Ensure the labs-content text is readable on split background */
+.labs-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Make sure the countdown page also uses this styling */
+.countdown-container {
+    position: relative;
+    z-index: 2;
 }
