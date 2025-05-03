@@ -10,7 +10,7 @@
     <style>
         /* Additional styles specific to countdown page */
         .countdown-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
             min-height: 100vh;
@@ -27,10 +27,19 @@
             filter: brightness(0) invert(1); /* Make logo white */
         }
         
-        h1 {
+        /* Use the same font styling as main pages */
+        .countdown-heading {
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             font-weight: 400;
+            font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+        }
+        
+        .countdown-subheading {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         p {
@@ -38,6 +47,7 @@
             line-height: 1.6;
             margin-bottom: 3rem;
             color: rgba(255, 255, 255, 0.85);
+            font-family: 'Roboto', Arial, sans-serif;
         }
         
         .countdown {
@@ -64,6 +74,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 0.5rem;
+            font-family: 'Google Sans', Arial, sans-serif;
         }
         
         .countdown-label {
@@ -71,6 +82,7 @@
             color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-family: 'Google Sans', Arial, sans-serif;
         }
         
         .notify-form {
@@ -79,11 +91,13 @@
             border-radius: 8px;
             margin-bottom: 2rem;
             max-width: 400px;
+            width: 100%;
         }
         
         .form-title {
             font-size: 1.3rem;
             margin-bottom: 1rem;
+            font-family: 'Google Sans', Arial, sans-serif;
         }
         
         .form-input {
@@ -121,6 +135,7 @@
             cursor: pointer;
             transition: background-color 0.2s, transform 0.2s;
             width: 100%;
+            font-family: 'Google Sans', Arial, sans-serif;
         }
         
         .notify-btn:hover {
@@ -135,6 +150,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-family: 'Google Sans', Arial, sans-serif;
         }
         
         .back-link:hover {
@@ -152,8 +168,12 @@
                 height: 60px;
             }
             
-            h1 {
+            .countdown-heading {
                 font-size: 2rem;
+            }
+            
+            .countdown-subheading {
+                font-size: 1.4rem;
             }
             
             p {
@@ -174,9 +194,28 @@
     </style>
 </head>
 <body class="labs-style">
+    <!-- Match header with other pages -->
+    <header class="labs-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="images/dwello-logo.png" alt="Dwello Logo" class="dwello-logo-small">
+                    </a>
+                </div>
+                <div class="auth-container">
+                    <a href="countdown.html" class="app-download">
+                        <i class="fas fa-mobile-alt"></i>
+                        Get Dwello
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <div class="countdown-container">
-        <img src="images/dwello-logo.png" alt="Dwello Logo" class="logo">
-        <h1>Hostel Search at Your Finger Tips!</h1>
+        <h1 class="countdown-heading">Hostel Search at Your Finger Tips!</h1>
+        <div class="countdown-subheading">The Dwello App is Coming Soon</div>
         <p>We're working hard to bring you the best student housing experience. Stay tuned for our app launch!</p>
         
         <div class="countdown">
@@ -244,7 +283,7 @@
             }
         }, 1000);
         
-        // Simple form handling (can be expanded with actual backend integration)
+        // Simple form handling
         document.querySelector('.notify-btn').addEventListener('click', function() {
             const email = document.querySelector('.form-input').value;
             if (email) {

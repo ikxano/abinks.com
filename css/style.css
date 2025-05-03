@@ -1512,3 +1512,38 @@ img {
     position: relative;
     z-index: 2;
 }
+
+/* App download link in header styling */
+.app-download {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.app-download:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.app-download i {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .app-download {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .app-download i {
+        font-size: 1rem;
+    }
+}
