@@ -1147,12 +1147,13 @@ img {
 
 .labs-description,
 .labs-tagline {
-    font-size: 1.2rem;
+    font-size: 1.2rem !important; /* Using !important to override any other styles */
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.9);
     text-align: left;
 }
 
+/* Reduce spacing between elements */
 .labs-description {
     margin-bottom: 0.5rem; /* Reduced from 1rem to 0.5rem */
 }
@@ -1197,12 +1198,8 @@ img {
 
 /* Improved responsive video container */
 .video-container-responsive {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
     position: relative;
-    padding-bottom: 2rem;
+    width: 100%;
 }
 
 .responsive-video {
@@ -1318,7 +1315,7 @@ img {
     
     .labs-description,
     .labs-tagline {
-        font-size: 1.1rem; /* Slightly smaller on mobile */
+        font-size: 1.1rem !important; /* Using !important to override any conflicting styles */
     }
     
     .video-container-responsive {
@@ -1575,7 +1572,7 @@ img {
     background-color: #001c4c;
 }
 
-/* About page styling */
+/* About page styling - updated for left-to-right reading */
 .about-content {
     max-width: 800px;
     margin: 0 auto;
@@ -1586,10 +1583,12 @@ img {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     font-weight: 500;
+    text-align: left; /* Explicitly left-aligned */
 }
 
 .about-section {
     margin-bottom: 3rem;
+    text-align: left; /* Ensure all content is left-aligned */
 }
 
 .about-section h2 {
@@ -1597,6 +1596,7 @@ img {
     margin-bottom: 1rem;
     color: #ffffff;
     font-weight: 500;
+    text-align: left; /* Explicitly left-aligned */
 }
 
 .about-section p {
@@ -1604,10 +1604,12 @@ img {
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
+    text-align: left; /* Explicitly left-aligned */
 }
 
 .feature-item {
     margin-bottom: 1.5rem;
+    text-align: left; /* Explicitly left-aligned */
 }
 
 .feature-item h3, 
@@ -1617,70 +1619,47 @@ img {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.95);
     display: inline-block;
+    text-align: left; /* Explicitly left-aligned */
 }
 
 .feature-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    text-align: left; /* Explicitly left-aligned */
 }
 
 .feature-list li {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
     position: relative;
-}
-
-.feature-list li:before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #ffffff;
-    font-size: 1.5rem;
-    line-height: 1;
-}
-
-.divider {
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin: 2rem 0;
+    text-align: left; /* Explicitly left-aligned */
 }
 
 .contact-info {
     font-style: italic;
     color: rgba(255, 255, 255, 0.8);
+    text-align: left; /* Explicitly left-aligned */
 }
 
+/* Only the CTA remains centered for visual emphasis */
 .about-cta {
-    text-align: center;
     margin-top: 3rem;
 }
 
-.cta-section {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 3rem;
-}
-
-/* Responsive styling for about page */
+/* Responsive styling remains, but ensures left alignment persists */
 @media (max-width: 768px) {
-    .about-content h1 {
-        font-size: 2rem;
-    }
-    
-    .about-section h2 {
-        font-size: 1.6rem;
-    }
-    
+    .about-content h1,
+    .about-section,
+    .about-section h2,
     .about-section p,
-    .feature-item p {
-        font-size: 1rem;
-    }
-    
+    .feature-item,
     .feature-item h3,
-    .feature-list h3 {
-        font-size: 1.2rem;
+    .feature-list h3,
+    .feature-list,
+    .feature-list li,
+    .contact-info {
+        text-align: left !important; /* Force left alignment even on mobile */
     }
 }
 
@@ -1732,7 +1711,7 @@ img {
     .labs-description, 
     .labs-tagline {
         text-align: center;
-        font-size: 1.1rem; /* Slightly smaller on mobile */
+        font-size: 1.1rem !important; /* Using !important to override any conflicting styles */
     }
     
     .labs-cta {
@@ -1753,4 +1732,65 @@ img {
 .video-container-responsive {
     position: relative;
     width: 100%;
+}
+
+/* Additional specific selectors to ensure they match */
+@media (max-width: 992px) {
+    .content-col .labs-description,
+    .content-col .labs-tagline {
+        font-size: 1.1rem !important;
+        font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+        font-weight: 400;
+    }
+}
+
+/* Video container spacing improvements */
+.video-container-responsive {
+    position: relative;
+    width: 100%;
+}
+
+/* Improved spacing for mobile views */
+@media (max-width: 992px) {
+    .video-col {
+        padding: 0 1rem; /* Add horizontal padding */
+    }
+    
+    .devices-preview {
+        width: 95%; /* Make slightly less than full width */
+        margin: 0 auto 2rem auto; /* Center and add bottom margin */
+        border-radius: 8px;
+    }
+    
+    .video-container-responsive {
+        box-shadow: none; /* Ensure no shadow on mobile */
+    }
+    
+    /* Add more space around the entire main section */
+    .labs-main {
+        padding: 1.5rem 0;
+    }
+    
+    /* Ensure container has proper padding */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Additional spacing after the content before video */
+    .content-col {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Even smaller screens get more proportional padding */
+@media (max-width: 576px) {
+    .video-col {
+        padding: 0 0.75rem;
+    }
+    
+    .devices-preview {
+        width: 92%; /* Even narrower on very small screens */
+        margin-bottom: 1.5rem;
+    }
 }
