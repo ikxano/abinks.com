@@ -1085,7 +1085,7 @@ img {
 .labs-style {
     background-color: #002663; /* American Express blue */
     color: #ffffff;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
 }
 
 /* Header styling */
@@ -1123,6 +1123,7 @@ img {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
 }
 
 /* Main content section - Google Labs inspired */
@@ -1137,13 +1138,16 @@ img {
 }
 
 .labs-main h1 {
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
     margin-bottom: 1.5rem;
     font-weight: 400;
+    letter-spacing: -0.5px;
 }
 
 .labs-description {
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 1.1rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
@@ -1161,6 +1165,7 @@ img {
     border: none;
     font-size: 1rem;
     transition: background-color 0.2s, transform 0.2s;
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
 }
 
 .primary-btn:hover {
@@ -1405,4 +1410,13 @@ img {
     .form-group select {
         padding: 0.7rem;
     }
+}
+
+/* Make logo clickable - add hover effect */
+.logo-container a {
+    display: block;
+}
+
+.logo-container a:hover {
+    opacity: 0.9;
 }
