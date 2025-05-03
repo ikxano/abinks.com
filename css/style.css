@@ -1100,6 +1100,14 @@ img {
     align-items: center;
 }
 
+.logo-container {
+    order: 1; /* Move logo to left (default) */
+}
+
+.auth-container {
+    order: 2; /* Move sign-in to right (default) */
+}
+
 .dwello-logo-small {
     width: 80px;
     height: auto;
