@@ -1145,22 +1145,21 @@ img {
     letter-spacing: -0.5px;
 }
 
-.labs-description {
+.labs-description,
+.labs-tagline {
     font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    line-height: 1.5;
     color: rgba(255, 255, 255, 0.9);
-    text-align: left; /* Changed from center to left */
+    text-align: left;
+}
+
+.labs-description {
+    margin-bottom: 0.5rem; /* Reduced from 1rem to 0.5rem */
 }
 
 .labs-tagline {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
-    text-align: left; /* Explicitly set left alignment */
-    max-width: 600px; /* Limit the width for better readability */
+    margin-top: 0; /* Ensure no top margin */
+    margin-bottom: 1.5rem; /* Space before the CTA button */
 }
 
 .primary-btn {
@@ -1317,8 +1316,9 @@ img {
         font-size: 2rem;
     }
     
-    .labs-description {
-        font-size: 1rem;
+    .labs-description,
+    .labs-tagline {
+        font-size: 1.1rem; /* Slightly smaller on mobile */
     }
     
     .video-container-responsive {
@@ -1701,6 +1701,9 @@ img {
 .content-col h1 {
     text-align: left;
     margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 2.8rem;
+    letter-spacing: -0.5px;
 }
 
 .video-col {
@@ -1723,11 +1726,13 @@ img {
     
     .content-col h1 {
         text-align: center;
+        font-size: 2.4rem;
     }
     
     .labs-description, 
     .labs-tagline {
         text-align: center;
+        font-size: 1.1rem; /* Slightly smaller on mobile */
     }
     
     .labs-cta {
