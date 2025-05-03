@@ -1726,11 +1726,36 @@ img {
     overflow: hidden;
     border-radius: 8px;
     background-color: #001c4c;
+    box-shadow: none !important; /* Force no shadow with !important */
 }
 
 .video-container-responsive {
     position: relative;
     width: 100%;
+    box-shadow: none !important; /* Force no shadow with !important */
+}
+
+/* Specific override for mobile and tablet */
+@media (max-width: 992px) {
+    .devices-preview,
+    .video-col .devices-preview,
+    .video-container-responsive {
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+    }
+    
+    /* Also remove any filter that might create shadow-like effects */
+    .devices-preview video,
+    .responsive-video {
+        filter: none !important;
+        -webkit-filter: none !important;
+    }
+}
+
+/* Extra insurance for other potential containers */
+.video-col * {
+    box-shadow: none !important;
 }
 
 /* Additional specific selectors to ensure they match */
