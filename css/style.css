@@ -25,11 +25,10 @@ body {
 }
 
 .container {
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
-    padding: 0 20px;
     margin: 0 auto;
-    box-sizing: border-box;
+    padding: 0 15px;
 }
 
 h1, h2, h3, h4 {
@@ -1753,13 +1752,13 @@ img {
 /* Improved spacing for mobile views */
 @media (max-width: 992px) {
     .video-col {
-        padding: 0 1rem; /* Add horizontal padding */
+        padding: 0 15px; /* Specific padding for video column */
     }
     
     .devices-preview {
-        width: 95%; /* Make slightly less than full width */
-        margin: 0 auto 2rem auto; /* Center and add bottom margin */
-        border-radius: 8px;
+        width: 90%; /* Control width explicitly */
+        margin: 0 auto 30px; /* Center and add bottom margin */
+        max-width: 560px; /* Limit maximum width */
     }
     
     .video-container-responsive {
@@ -1777,9 +1776,9 @@ img {
         padding-right: 1rem;
     }
     
-    /* Additional spacing after the content before video */
+    /* Improve spacing after content */
     .content-col {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
 }
 
@@ -1792,5 +1791,106 @@ img {
     .devices-preview {
         width: 92%; /* Even narrower on very small screens */
         margin-bottom: 1.5rem;
+    }
+}
+
+/* Specific tablet improvements */
+@media (min-width: 768px) and (max-width: 992px) {
+    /* Target tablet specifically */
+    .container {
+        width: 85%; /* Narrower container on tablets */
+        padding: 0 20px; /* More padding */
+    }
+    
+    .video-col {
+        padding: 0 15px; /* Specific padding for video column */
+    }
+    
+    .devices-preview {
+        width: 90%; /* Control width explicitly */
+        margin: 0 auto 30px; /* Center and add bottom margin */
+        max-width: 560px; /* Limit maximum width */
+    }
+    
+    /* Ensure split layout has proper spacing */
+    .split-layout {
+        padding: 2rem 15px;
+    }
+    
+    /* Improve spacing after content */
+    .content-col {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* General mobile improvements (including tablets) */
+@media (max-width: 992px) {
+    .labs-main {
+        padding: 1.5rem 0;
+    }
+    
+    .video-container-responsive {
+        overflow: hidden; /* Prevent overflow */
+    }
+    
+    /* Fix for edge overlap */
+    .devices-preview {
+        width: 100%;
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 8px;
+    }
+}
+
+/* Smaller devices */
+@media (max-width: 576px) {
+    .container {
+        width: 92%;
+        padding: 0 10px;
+    }
+    
+    .devices-preview {
+        max-width: 92%;
+    }
+}
+
+/* Left-aligned description for all devices */
+.labs-description {
+    font-size: 1.2rem !important;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left !important; /* Force left alignment */
+    margin-bottom: 2rem; /* Add space before CTA button */
+    max-width: 100%; /* Ensure full width usage */
+}
+
+/* Maintain left alignment on all device sizes */
+@media (max-width: 992px) {
+    .labs-description {
+        text-align: left !important; /* Override any potential center alignment */
+        font-size: 1.1rem !important;
+        padding: 0 5px; /* Small padding for breathing room */
+    }
+    
+    .content-col {
+        padding: 0 10px; /* Add slight padding to container */
+    }
+    
+    .content-col h1 {
+        text-align: left !important; /* Also ensure heading is left-aligned */
+    }
+    
+    /* Make sure CTA is also left-aligned on all devices */
+    .labs-cta {
+        text-align: left !important;
+    }
+}
+
+/* Specific for very small devices */
+@media (max-width: 576px) {
+    .labs-description {
+        font-size: 1rem !important; /* Slightly smaller for very small screens */
+        padding: 0; /* Remove padding on tiny screens */
     }
 }
