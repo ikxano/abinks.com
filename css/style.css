@@ -1738,24 +1738,49 @@ img {
 /* Specific override for mobile and tablet */
 @media (max-width: 992px) {
     .devices-preview,
-    .video-col .devices-preview,
-    .video-container-responsive {
+    .video-container-responsive,
+    .responsive-video,
+    .video-col > *,
+    .labs-style.video-container-responsive,
+    .labs-style .video-container-responsive,
+    #main-video-player,
+    .video-col .devices-preview {
         box-shadow: none !important;
         -webkit-box-shadow: none !important;
         -moz-box-shadow: none !important;
+        filter: drop-shadow(0 0 0 transparent) !important;
+        -webkit-filter: drop-shadow(0 0 0 transparent) !important;
+        border: none !important; /* Remove any borders that might appear as shadows */
+        outline: none !important;
     }
     
-    /* Also remove any filter that might create shadow-like effects */
-    .devices-preview video,
-    .responsive-video {
-        filter: none !important;
-        -webkit-filter: none !important;
+    /* Remove any background gradients that might create shadow effects */
+    .devices-preview:before,
+    .devices-preview:after,
+    .video-container-responsive:before,
+    .video-container-responsive:after {
+        display: none !important;
+        content: none !important;
+        box-shadow: none !important;
+        background: none !important;
     }
-}
-
-/* Extra insurance for other potential containers */
-.video-col * {
-    box-shadow: none !important;
+    
+    /* Ensure no text shadow either */
+    .video-col,
+    .video-col * {
+        text-shadow: none !important;
+    }
+    
+    /* Reset any transform that might be creating a shadow effect */
+    .devices-preview,
+    .video-container-responsive {
+        transform: none !important;
+    }
+    
+    /* Set flat background for video container */
+    .devices-preview {
+        background-color: transparent !important;
+    }
 }
 
 /* Additional specific selectors to ensure they match */
