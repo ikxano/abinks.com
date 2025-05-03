@@ -1572,7 +1572,6 @@ img {
     max-width: 100%;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     background-color: #001c4c;
 }
 
@@ -1712,7 +1711,7 @@ img {
 /* Responsive adjustments for split layout */
 @media (max-width: 992px) {
     .split-layout {
-        flex-direction: column-reverse; /* Stack with video on top, text below */
+        flex-direction: column; /* Changed from column-reverse to column so text comes first */
         gap: 2rem;
         padding: 2rem 0;
     }
@@ -1735,4 +1734,18 @@ img {
         text-align: center;
         margin-bottom: 2rem;
     }
+}
+
+/* Video container without shadow */
+.devices-preview {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #001c4c;
+}
+
+.video-container-responsive {
+    position: relative;
+    width: 100%;
 }
