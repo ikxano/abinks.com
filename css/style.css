@@ -1200,18 +1200,80 @@ img {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Clean footer styling */
+/* AmEx style full-width footer */
 .labs-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 0;
-    color: rgba(255, 255, 255, 0.6);
+    background-color: #001a47;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 0 2rem;
     margin-top: 3rem;
-    max-width: 1000px; /* Match navbar width */
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 0 1.5rem;
+}
+
+.footer-column h4 {
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
 }
 
 /* Media queries for better responsiveness */
@@ -1219,6 +1281,10 @@ img {
     .video-container-responsive {
         max-width: 95%;
         padding-bottom: 1.5rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1258,9 +1324,17 @@ img {
         padding: 0 1rem;
     }
     
-    .labs-footer {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
         flex-direction: column;
-        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-legal {
+        flex-wrap: wrap;
         gap: 1rem;
     }
 }
