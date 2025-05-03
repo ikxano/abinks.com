@@ -3,374 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Housing Survey - Dwello</title>
+    <title>Dwello - Get Started</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header>
+<body class="labs-style">
+    <!-- Minimalist Header with static logo image -->
+    <header class="labs-header">
         <div class="container">
-            <div class="logo">
-                <img src="images/dwello-logo.png" alt="Dwello Logo" class="dwello-logo header-logo">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/dwello-logo.png" alt="Dwello Logo" class="dwello-logo-small">
+                </div>
+                <div class="auth-container">
+                    <a href="#" class="sign-in">Sign in</a>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="survey.html" class="active">Housing Survey</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
-    <!-- Get Started Section (styled like hero) -->
-    <section class="hero survey-hero">
+    <!-- Main Content - Survey Form -->
+    <section class="labs-main">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text mobile-rtl">
-                    <div class="hero-logo">
-                        <img src="images/dwello-logo.png" alt="Dwello Logo" class="dwello-logo">
-                    </div>
-                    <h1>Find the perfect student housing solution</h1>
-                    <h2>Complete our survey and get early access</h2>
-                    <p class="hero-tagline mobile-rtl-item">Join 25,000+ students who found their ideal housing situation through Dwello. Your feedback helps us improve.</p>
-                    
-                    <div class="hero-features">
-                        <span><i class="fas fa-map-marker-alt"></i> Campus Proximity</span>
-                        <span><i class="fas fa-shield-alt"></i> Verified Listings</span>
-                        <span><i class="fas fa-dollar-sign"></i> Student Budgets</span>
-                    </div>
-                </div>
+            <div class="labs-content">
+                <h1>Find your perfect student housing</h1>
+                <p class="labs-description">Answer a few questions to help us find the best housing options near your campus.</p>
                 
-                <div class="devices-preview">
-                    <img src="images/dwello-website-image.png" alt="Dwello on multiple devices" class="responsive-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="signup-section">
-        <div class="container">
-            <div class="signup-wrapper">
-                <div class="signup-form">
-                    <h3>Get Started Today</h3>
-                    <form>
+                <div class="survey-form-container">
+                    <form id="housing-search-form" class="survey-form">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Your name" required>
+                            <label for="university">University or College</label>
+                            <input type="text" id="university" name="university" placeholder="Enter your university name" required>
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="student-type">I am a</label>
+                            <select id="student-type" name="student-type" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="undergraduate">Undergraduate Student</option>
+                                <option value="graduate">Graduate Student</option>
+                                <option value="international">International Student</option>
+                                <option value="parent">Parent</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="move-date">When do you need housing?</label>
+                            <input type="date" id="move-date" name="move-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Monthly Budget (USD)</label>
+                            <select id="budget" name="budget" required>
+                                <option value="" disabled selected>Select your budget</option>
+                                <option value="under-500">Under $500</option>
+                                <option value="500-750">$500 - $750</option>
+                                <option value="750-1000">$750 - $1000</option>
+                                <option value="1000-1500">$1000 - $1500</option>
+                                <option value="above-1500">Above $1500</option>
+                            </select>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="Your .edu email" required>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="university">University</label>
-                            <select id="university" required>
-                                <option value="" disabled selected>Select your university</option>
-                                <option value="state-university">State University</option>
-                                <option value="private-university">Private University</option>
-                                <option value="technical-university">Technical University</option>
-                                <option value="nursing-training-college">Nursing Training College</option>
-                                <option value="teacher-training-college">Teacher Training College</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="housing-type">I'm looking for</label>
-                            <select id="housing-type" required>
-                                <option value="" disabled selected>Select housing type</option>
-                                <option value="apartment">Apartment</option>
-                                <option value="house">House</option>
-                                <option value="roommate">Roommate</option>
-                                <option value="sublet">Sublet</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-full">CREATE FREE ACCOUNT</button>
-                        <p class="form-note">Find housing in less than 48 hours!</p>
-                        <p class="privacy-note">By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
+                        
+                        <button type="submit" class="btn primary-btn survey-submit">Find Housing Now</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="survey-intro">
-        <div class="container">
-            <h1>Student Housing Satisfaction Survey</h1>
-            <p>Thank you for participating in our survey about student housing experiences. We're exploring the possibility of developing an app to help students find affordable and suitable housing options. Your feedback is invaluable!</p>
-        </div>
-    </section>
-
-    <section class="survey-form">
-        <div class="container">
-            <form id="product-survey">
-                <div class="form-section">
-                    <h2>About You</h2>
-                    <div class="form-group">
-                        <label for="fullname">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="survey-email">Email Address</label>
-                        <input type="email" id="survey-email" name="survey-email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="university-name">University/College</label>
-                        <input type="text" id="university-name" name="university-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="year">Year of Study</label>
-                        <select id="year" name="year" required>
-                            <option value="">Select your year</option>
-                            <option value="First">First Year</option>
-                            <option value="Second">Second Year</option>
-                            <option value="Third">Third Year</option>
-                            <option value="Fourth">Fourth Year</option>
-                            <option value="Graduate">Graduate Student</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h2>Current Housing Situation</h2>
-                    <div class="form-group">
-                        <label>Where do you currently live?</label>
-                        <div class="radio-group">
-                            <label class="radio-inline">
-                                <input type="radio" name="housing_type" value="University Residence" required> University Residence
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="housing_type" value="Off-campus Apartment"> Off-campus Apartment
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="housing_type" value="Off-campus House"> Off-campus House
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="housing_type" value="Family Home"> Family Home
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="housing_type" value="Other"> Other
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>How many roommates do you have?</label>
-                        <select id="roommates" name="roommates" required>
-                            <option value="">Select number of roommates</option>
-                            <option value="0">0 (I live alone)</option>
-                            <option value="1">1 roommate</option>
-                            <option value="2">2 roommates</option>
-                            <option value="3">3 roommates</option>
-                            <option value="4+">4+ roommates</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="rent">What is your monthly rent? (in $)</label>
-                        <input type="number" id="rent" name="rent" placeholder="Enter amount in dollars" min="0" required>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h2>Housing Satisfaction</h2>
-                    <div class="form-group">
-                        <label>How satisfied are you with your current housing location?</label>
-                        <div class="rating">
-                            <input type="radio" id="location-5" name="location_rating" value="5" required><label for="location-5">5</label>
-                            <input type="radio" id="location-4" name="location_rating" value="4"><label for="location-4">4</label>
-                            <input type="radio" id="location-3" name="location_rating" value="3"><label for="location-3">3</label>
-                            <input type="radio" id="location-2" name="location_rating" value="2"><label for="location-2">2</label>
-                            <input type="radio" id="location-1" name="location_rating" value="1"><label for="location-1">1</label>
-                        </div>
-                        <div class="rating-labels">
-                            <span>Very Satisfied</span>
-                            <span>Very Dissatisfied</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>How satisfied are you with the cost of your housing?</label>
-                        <div class="rating">
-                            <input type="radio" id="cost-5" name="cost_rating" value="5" required><label for="cost-5">5</label>
-                            <input type="radio" id="cost-4" name="cost_rating" value="4"><label for="cost-4">4</label>
-                            <input type="radio" id="cost-3" name="cost_rating" value="3"><label for="cost-3">3</label>
-                            <input type="radio" id="cost-2" name="cost_rating" value="2"><label for="cost-2">2</label>
-                            <input type="radio" id="cost-1" name="cost_rating" value="1"><label for="cost-1">1</label>
-                        </div>
-                        <div class="rating-labels">
-                            <span>Very Satisfied</span>
-                            <span>Very Dissatisfied</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>How satisfied are you with your landlord/property management?</label>
-                        <div class="rating">
-                            <input type="radio" id="landlord-5" name="landlord_rating" value="5" required><label for="landlord-5">5</label>
-                            <input type="radio" id="landlord-4" name="landlord_rating" value="4"><label for="landlord-4">4</label>
-                            <input type="radio" id="landlord-3" name="landlord_rating" value="3"><label for="landlord-3">3</label>
-                            <input type="radio" id="landlord-2" name="landlord_rating" value="2"><label for="landlord-2">2</label>
-                            <input type="radio" id="landlord-1" name="landlord_rating" value="1"><label for="landlord-1">1</label>
-                        </div>
-                        <div class="rating-labels">
-                            <span>Very Satisfied</span>
-                            <span>Very Dissatisfied</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h2>Housing Challenges</h2>
-                    <div class="form-group">
-                        <label>What challenges have you faced when looking for housing? (Select all that apply)</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="challenges" value="High Cost"> High Cost
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="challenges" value="Limited Availability"> Limited Availability
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="challenges" value="Poor Conditions"> Poor Conditions
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="challenges" value="Distance from Campus"> Distance from Campus
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="challenges" value="Difficult Roommates"> Difficult Roommates
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="challenges" value="Safety Concerns"> Safety Concerns
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="budget">What is your ideal monthly housing budget? (in $)</label>
-                        <input type="number" id="budget" name="budget" placeholder="Enter amount in dollars" min="0" required>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h2>Housing App Interest</h2>
-                    <div class="form-group">
-                        <label>How interested would you be in an app that helps find student housing within your budget?</label>
-                        <div class="rating">
-                            <input type="radio" id="app-interest-5" name="app_interest" value="5" required><label for="app-interest-5">5</label>
-                            <input type="radio" id="app-interest-4" name="app_interest" value="4"><label for="app-interest-4">4</label>
-                            <input type="radio" id="app-interest-3" name="app_interest" value="3"><label for="app-interest-3">3</label>
-                            <input type="radio" id="app-interest-2" name="app_interest" value="2"><label for="app-interest-2">2</label>
-                            <input type="radio" id="app-interest-1" name="app_interest" value="1"><label for="app-interest-1">1</label>
-                        </div>
-                        <div class="rating-labels">
-                            <span>Very Interested</span>
-                            <span>Not Interested</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>What features would be most important to you in a student housing app? (Select all that apply)</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="features" value="Budget Filtering"> Budget Filtering
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="features" value="Distance to Campus"> Distance to Campus Map
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="features" value="Roommate Matching"> Roommate Matching
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="features" value="Landlord Reviews"> Landlord/Property Reviews
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="features" value="Virtual Tours"> Virtual Tours
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="features" value="Lease Help"> Lease/Contract Assistance
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>How much would you be willing to pay for such an app? (one-time fee)</label>
-                        <div class="radio-group">
-                            <label class="radio-inline">
-                                <input type="radio" name="app_price" value="Free" required> Free Only
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="app_price" value="$1-$5"> $1-$5
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="app_price" value="$6-$10"> $6-$10
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="app_price" value="$11+"> $11+
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h2>Additional Feedback</h2>
-                    <div class="form-group">
-                        <label for="housing_concerns">What are your biggest concerns with student housing?</label>
-                        <textarea id="housing_concerns" name="housing_concerns" rows="4"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="app_suggestions">What specific features would you like to see in a student housing app?</label>
-                        <textarea id="app_suggestions" name="app_suggestions" rows="4"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-buttons">
-                    <button type="submit" class="btn">Submit Survey</button>
-                    <button type="reset" class="btn btn-secondary">Reset Form</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <section id="thank-you" class="thank-you" style="display: none;">
-        <div class="container">
-            <div class="thank-you-content">
-                <i class="fas fa-check-circle"></i>
-                <h2>Thank You!</h2>
-                <p>Your feedback is extremely valuable as we develop solutions to help students find affordable housing. We appreciate your time!</p>
-                <a href="index.html" class="btn">Return to Home</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-    <div class="container">
+    <!-- AmEx Style Full-Width Footer with Simplified Content -->
+    <footer class="labs-footer">
         <div class="footer-content">
-            <div class="footer-logo">
-                <h2>Dwello</h2>
-                <p>A subsidiary of Inkauxano</p>
-            </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="survey.html">Survey</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+            <div class="footer-column">
+                <h4>About Dwello</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
-            <div class="footer-social">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
+            
+            <div class="footer-column">
+                <h4>For Students/Families</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Register Now</a></li>
+                    <li><a href="#">Student Resources</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>For Landlords</h4>
+                <ul class="footer-links">
+                    <li><a href="#">List Your Property</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Connect With Us</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>&copy; 2023 Dwello. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Settings</a>
+                <a href="#">Accessibility</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Dwello. All rights reserved
+            </div>
         </div>
-    </div>
-</footer>
-
+    </footer>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
