@@ -1146,11 +1146,21 @@ img {
 }
 
 .labs-description {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center; /* Keep the question centered */
+}
+
+.labs-tagline {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left; /* Explicitly set left alignment */
+    max-width: 600px; /* Limit the width for better readability */
 }
 
 .primary-btn {
@@ -1545,5 +1555,131 @@ img {
     
     .app-download i {
         font-size: 1rem;
+    }
+}
+
+/* Add more spacing between CTA and video */
+.labs-cta {
+    margin-bottom: 4rem; /* Increase bottom margin to create more space */
+    text-align: left; /* Keep alignment consistent with tagline */
+}
+
+/* Adjust video container top margin */
+.devices-preview {
+    margin-top: 2rem; /* Add space above the video as well */
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background-color: #001c4c;
+}
+
+/* About page styling */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.about-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.about-section {
+    margin-bottom: 3rem;
+}
+
+.about-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.feature-item {
+    margin-bottom: 1.5rem;
+}
+
+.feature-item h3, 
+.feature-list h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    display: inline-block;
+}
+
+.feature-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.feature-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+}
+
+.contact-info {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.about-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.cta-section {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+/* Responsive styling for about page */
+@media (max-width: 768px) {
+    .about-content h1 {
+        font-size: 2rem;
+    }
+    
+    .about-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .about-section p,
+    .feature-item p {
+        font-size: 1rem;
+    }
+    
+    .feature-item h3,
+    .feature-list h3 {
+        font-size: 1.2rem;
     }
 }
