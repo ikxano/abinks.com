@@ -1420,3 +1420,88 @@ img {
 .logo-container a:hover {
     opacity: 0.9;
 }
+
+/* Survey Question Styling */
+.survey-question {
+    margin-bottom: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.question-label {
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.select-hint {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-top: 0.25rem;
+    margin-right: 0.75rem;
+    width: auto;
+    height: auto;
+    accent-color: #ffffff;
+}
+
+.other-option {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.other-input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    width: 200px;
+}
+
+.other-input:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 768px) {
+    .survey-question {
+        margin-bottom: 2rem;
+        padding-top: 1.25rem;
+    }
+    
+    .question-label {
+        font-size: 1rem;
+    }
+    
+    .checkbox-item {
+        font-size: 0.95rem;
+    }
+    
+    .other-input {
+        width: 100%;
+        margin-left: 2rem;
+        margin-top: 0.5rem;
+    }
+}
