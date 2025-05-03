@@ -28,10 +28,10 @@
         </div>
     </header>
 
-    <!-- Main Content - Clean and Simple -->
+    <!-- Main Content - Reorganized with video on right, text on left -->
     <section class="labs-main">
-        <div class="container">
-            <div class="labs-content">
+        <div class="container split-layout">
+            <div class="content-col">
                 <h1>Hostel Search at Your Finger Tips!</h1>
                 <p class="labs-description">Want to join students who find, compare, and book their choice hostels in an easy, convenient and safe manner?</p>
                 <p class="labs-tagline">Become a Dwella today!<br>
@@ -42,22 +42,74 @@
                 </div>
             </div>
             
-            <div class="devices-preview labs-style video-container-responsive">
-                <video id="main-video-player" class="responsive-video" autoplay muted playsinline>
-                    <source src="videos/dwello_intro.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="video-col">
+                <div class="devices-preview labs-style video-container-responsive">
+                    <video id="main-video-player" class="responsive-video" autoplay muted playsinline>
+                        <source src="videos/dwello_intro.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Simplified Footer Structure -->
+    <!-- Features Section -->
+    <section class="labs-features">
+        <div class="container">
+            <h2 class="section-title">Why students love Dwello</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Find the Perfect Match</h3>
+                    <p>Search, filter, and compare 10,000+ verified listings near top universities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Verified Reviews</h3>
+                    <p>Read authentic reviews from students who actually lived there.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>No Hidden Fees</h3>
+                    <p>Skip agent fees and book directly with landlords or property managers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safe & Secure</h3>
+                    <p>All properties are verified and payments are protected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="labs-cta-section">
+        <div class="container">
+            <h2>Ready to find your perfect student housing?</h2>
+            <p>Join thousands of students who found their ideal accommodations with Dwello.</p>
+            <a href="survey.html" class="btn primary-btn large-btn">Get Started for Free</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="labs-footer">
         <div class="footer-content">
             <div class="footer-column">
                 <h4>About Dwello</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Our Story</a></li>
+                    <li><a href="about.html">Our Story</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
@@ -65,7 +117,7 @@
             <div class="footer-column">
                 <h4>For Students/Families</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Register Now</a></li>
+                    <li><a href="survey.html">Register Now</a></li>
                     <li><a href="#">Student Resources</a></li>
                 </ul>
             </div>

@@ -1150,7 +1150,7 @@ img {
     line-height: 1.6;
     margin-bottom: 1rem;
     color: rgba(255, 255, 255, 0.9);
-    text-align: center; /* Keep the question centered */
+    text-align: left; /* Changed from center to left */
 }
 
 .labs-tagline {
@@ -1560,8 +1560,9 @@ img {
 
 /* Add more spacing between CTA and video */
 .labs-cta {
-    margin-bottom: 4rem; /* Increase bottom margin to create more space */
-    text-align: left; /* Keep alignment consistent with tagline */
+    margin-top: 2rem;
+    margin-bottom: 0; /* Remove bottom margin since it's now inside a column */
+    text-align: left;
 }
 
 /* Adjust video container top margin */
@@ -1681,5 +1682,57 @@ img {
     .feature-item h3,
     .feature-list h3 {
         font-size: 1.2rem;
+    }
+}
+
+/* Split layout for homepage */
+.split-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem 0;
+}
+
+.content-col {
+    flex: 1;
+    max-width: 50%;
+}
+
+.content-col h1 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.video-col {
+    flex: 1;
+    max-width: 50%;
+}
+
+/* Responsive adjustments for split layout */
+@media (max-width: 992px) {
+    .split-layout {
+        flex-direction: column-reverse; /* Stack with video on top, text below */
+        gap: 2rem;
+        padding: 2rem 0;
+    }
+    
+    .content-col, 
+    .video-col {
+        max-width: 100%;
+    }
+    
+    .content-col h1 {
+        text-align: center;
+    }
+    
+    .labs-description, 
+    .labs-tagline {
+        text-align: center;
+    }
+    
+    .labs-cta {
+        text-align: center;
+        margin-bottom: 2rem;
     }
 }
