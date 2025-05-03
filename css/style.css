@@ -1083,15 +1083,17 @@ img {
 
 /* Labs-style framework (Google Labs inspired) */
 .labs-style {
-    background: linear-gradient(to right, 
+    background: linear-gradient(to bottom, 
         #001c4c 0%, /* Darker blue from navbar */
-        #001c4c 33.33%, /* Extend to exactly 1/3 of the page */
+        #001c4c 33.33%, /* Extend to exactly 1/3 of the page height */
         #002663 33.33%, /* American Express blue starts */
         #002663 100%); /* Fill the rest with American Express blue */
     color: #ffffff;
     font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-attachment: fixed; /* Ensure the gradient doesn't scroll */
+    min-height: 100vh; /* Make sure the body takes up at least the full viewport height */
 }
 
 /* Header styling */
@@ -1218,7 +1220,9 @@ img {
 
 /* AmEx style full-width footer */
 .labs-footer {
-    background-color: #001a47;
+    background-color: rgba(0, 0, 0, 0.15); /* Slightly darker than the background */
+    position: relative;
+    z-index: 1;
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1519,15 +1523,17 @@ img {
 
 /* Split background design - dark blue on left 1/3 */
 body.labs-style {
-    background: linear-gradient(to right, 
+    background: linear-gradient(to bottom, 
         #001c4c 0%, /* Darker blue from navbar */
-        #001c4c 33.33%, /* Extend to exactly 1/3 of the page */
+        #001c4c 33.33%, /* Extend to exactly 1/3 of the page height */
         #002663 33.33%, /* American Express blue starts */
         #002663 100%); /* Fill the rest with American Express blue */
     color: #ffffff;
     font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-attachment: fixed; /* Ensure the gradient doesn't scroll */
+    min-height: 100vh; /* Make sure the body takes up at least the full viewport height */
 }
 
 /* Adjust container to work well with the split background */
