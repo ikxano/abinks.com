@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Video sequence player setup
+    // Video sequence player setup - removed promotion_video.mp4 and dwello_reservation.mp4
     const videoSources = [
-        'videos/dwello_intro.mp4',
-        'videos/promotion_video.mp4',
-        'videos/dwello_reservation.mp4'
+        'videos/dwello_intro.mp4'
+        // Removed 'videos/promotion_video.mp4' and 'videos/dwello_reservation.mp4'
     ];
 
     let currentVideoIndex = 0;
