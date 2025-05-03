@@ -1109,8 +1109,9 @@ img {
 }
 
 .dwello-logo-small {
-    width: 80px;
+    width: 120px;
     height: auto;
+    display: block;
 }
 
 .sign-in {
@@ -1205,5 +1206,59 @@ img {
     
     .labs-main {
         padding: 2rem 0;
+    }
+}
+
+/* Logo styling */
+.dwello-logo-small {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+/* Improved responsive video container */
+.video-container-responsive {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.responsive-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 992px) {
+    .video-container-responsive {
+        max-width: 95%;
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .dwello-logo-small {
+        width: 100px;
+    }
+    
+    .video-container-responsive {
+        max-width: 100%;
+        padding-bottom: 1rem;
+    }
+    
+    .responsive-video {
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .dwello-logo-small {
+        width: 80px;
     }
 }
