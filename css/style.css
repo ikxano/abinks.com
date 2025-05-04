@@ -1165,22 +1165,23 @@ img {
 }
 
 .primary-btn {
-    background-color: var(--dwello-blue); /* Use the same blue */
-    color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 500;
-    text-decoration: none;
     display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.875rem 1.75rem;
     font-size: 1rem;
-    transition: background-color 0.2s, transform 0.2s;
-    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: var(--dwello-blue);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .primary-btn:hover {
-    background-color: #f5f5f5;
-    transform: translateY(-1px);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .mobile-prompt {
@@ -1562,21 +1563,43 @@ img {
     }
 }
 
-/* Add more spacing between CTA and video */
+/* Revert CTA button styling to original */
 .labs-cta {
     margin-top: 2rem;
-    margin-bottom: 0; /* Remove bottom margin since it's now inside a column */
-    text-align: left;
+    text-align: center; /* Reverted to center alignment */
 }
 
-/* Adjust video container top margin */
-.devices-preview {
-    margin-top: 2rem; /* Add space above the video as well */
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    background-color: var(--dwello-blue); /* Use the same blue */
+.primary-btn {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: var(--dwello-blue);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments for CTA */
+@media (max-width: 992px) {
+    .labs-cta {
+        text-align: center; /* Ensure center alignment on mobile */
+        margin-bottom: 2rem;
+    }
+    
+    .primary-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
 }
 
 /* About page styling - updated for left-to-right reading */
@@ -2071,6 +2094,81 @@ img {
     .cookie-section p,
     .cookie-list li p,
     .browser-instructions li {
+        font-size: 1rem;
+    }
+}
+
+/* Accessibility page styling */
+.accessibility-page {
+    padding: 3rem 0;
+}
+
+.accessibility-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.accessibility-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.accessibility-section {
+    margin-bottom: 2.5rem;
+}
+
+.accessibility-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.accessibility-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.accessibility-section .feature-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.accessibility-section .feature-list li {
+    margin-bottom: 1.5rem;
+}
+
+.accessibility-section .feature-list h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .accessibility-page {
+        padding: 2rem 0;
+    }
+    
+    .accessibility-content h1 {
+        font-size: 2rem;
+    }
+    
+    .accessibility-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .accessibility-section .feature-list h3 {
+        font-size: 1.2rem;
+    }
+    
+    .accessibility-section p,
+    .accessibility-section .feature-list li p {
         font-size: 1rem;
     }
 }
