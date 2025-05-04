@@ -8,6 +8,7 @@
     --text-color: #4b4a48;
     --body-font: 'Montserrat', sans-serif;
     --heading-font: 'Cormorant Garamond', serif;
+    --dwello-blue: #001c4c; /* Define the navbar blue as a variable */
 }
 
 * {
@@ -1082,7 +1083,7 @@ img {
 
 /* Labs-style framework (Google Labs inspired) */
 .labs-style {
-    background-color: #002663; /* Back to original American Express blue */
+    background-color: var(--dwello-blue); /* Use the same blue */
     color: #ffffff;
     font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
 }
@@ -1090,7 +1091,7 @@ img {
 /* Header styling */
 .labs-header {
     padding: 1.5rem 0; /* Increase vertical padding */
-    background-color: #001c4c;
+    background-color: var(--dwello-blue);
     position: relative;
     z-index: 100;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1164,14 +1165,14 @@ img {
 }
 
 .primary-btn {
-    background-color: #ffffff;
-    color: #002663;
+    background-color: var(--dwello-blue); /* Use the same blue */
+    color: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1rem;
     transition: background-color 0.2s, transform 0.2s;
     font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
@@ -1212,13 +1213,13 @@ img {
 
 /* AmEx style full-width footer */
 .labs-footer {
-    background-color: rgba(0, 0, 0, 0.15); /* Slightly darker than the background */
+    background-color: var(--dwello-blue); /* Use the same blue */
     position: relative;
     z-index: 1;
-    color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
     font-size: 0.9rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 3rem 0 2rem;
+    padding: 3rem 0 1.5rem;
     margin-top: 3rem;
     width: 100%;
 }
@@ -1250,7 +1251,7 @@ img {
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -1260,6 +1261,7 @@ img {
 }
 
 .footer-bottom {
+    background-color: var(--dwello-blue); /* Use the same blue */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -1278,13 +1280,13 @@ img {
 }
 
 .footer-legal a {
-    color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.8rem;
 }
 
 .footer-copyright {
-    color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
     font-size: 0.8rem;
 }
 
@@ -1574,7 +1576,7 @@ img {
     max-width: 100%;
     overflow: hidden;
     border-radius: 8px;
-    background-color: #001c4c;
+    background-color: var(--dwello-blue); /* Use the same blue */
 }
 
 /* About page styling - updated for left-to-right reading */
@@ -1731,7 +1733,7 @@ img {
     max-width: 100%;
     overflow: hidden;
     border-radius: 8px;
-    background-color: #001c4c;
+    background-color: var(--dwello-blue); /* Use the same blue */
     box-shadow: none !important; /* Force no shadow with !important */
 }
 
@@ -1973,5 +1975,102 @@ img {
     
     .header-content {
         min-height: 50px; /* Slightly shorter on mobile but proportional */
+    }
+}
+
+/* Cookie Settings page styling */
+.cookie-settings {
+    padding: 3rem 0;
+}
+
+.cookie-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.cookie-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.cookie-section {
+    margin-bottom: 2.5rem;
+}
+
+.cookie-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.cookie-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.cookie-list {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.cookie-list li {
+    margin-bottom: 1.5rem;
+}
+
+.cookie-list h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.browser-instructions h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.browser-instructions ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.browser-instructions li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cookie-settings {
+        padding: 2rem 0;
+    }
+    
+    .cookie-content h1 {
+        font-size: 2rem;
+        text-align: left;
+    }
+    
+    .cookie-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .cookie-list h3,
+    .browser-instructions h3 {
+        font-size: 1.2rem;
+    }
+    
+    .cookie-section p,
+    .cookie-list li p,
+    .browser-instructions li {
+        font-size: 1rem;
     }
 }
