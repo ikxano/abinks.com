@@ -123,4 +123,154 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 800);
         });
     }
+
+    // Mobile menu functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Form submission handling for survey
+    if (document.getElementById("housing-search-form")) {
+        document.getElementById("housing-search-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            // Show loading indicator if it exists
+            const loadingIndicator = document.getElementById("loading-indicator");
+            if (loadingIndicator) {
+                loadingIndicator.style.display = "block";
+            }
+            
+            // Helper to get multiple checkbox values
+            const getCheckedValues = (name) => {
+                return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
+            };
+
+            // Get "other" text value if it exists
+            const getOtherText = (id) => {
+                const element = document.getElementById(id);
+                return element ? element.value || "" : "";
+            };
+
+            const data = {
+                university: document.getElementById("university").value,
+                studentType: document.getElementById("student-type").value,
+                budget: document.getElementById("budget").value,
+                hostelFind: getCheckedValues("hostel-find").concat(getOtherText("q1-other-text")),
+                difficulties: getCheckedValues("difficulties").concat(getOtherText("q2-other-text")),
+                challenges: getCheckedValues("challenges").concat(getOtherText("q3-other-text")),
+                useApp: document.querySelector('input[name="use-app"]:checked')?.value || "",
+                appFeatures: getCheckedValues("app-features").concat(getOtherText("q5-other-text")),
+                email: document.getElementById("notify-email").value,
+                phone: document.getElementById("phone").value
+            };
+
+            // Using the Google Apps Script Web App URL
+            fetch("https://script.google.com/macros/s/AKfycbw3pFhWZUVthJYRse9tXAG_Dutk4O4divF8OJq-9NncPMxB6MfVNzX35rlFifFUeIfrnQ/exec", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading indicator
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = "none";
+                }
+                
+                // Show success message
+                alert("Thanks! Your response has been recorded.");
+                
+                // Reset form
+                document.getElementById("housing-search-form").reset();
+            })
+            .catch(error => {
+                // Hide loading indicator
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = "none";
+                }
+                
+                console.error("Error submitting form:", error);
+                alert("There was an error submitting the form. Please try again.");
+            });
+        });
+
+        // Handle "Other" checkbox toggles to show/hide text inputs
+        document.querySelectorAll('input[type="checkbox"][value="Other"]').forEach(checkbox => {
+            const questionNumber = checkbox.name.match(/\d+/)?.[0] || "";
+            const otherTextId = `q${questionNumber}-other-text`;
+            const otherTextField = document.getElementById(otherTextId);
+            
+            if (otherTextField) {
+                // Initial state
+                otherTextField.style.display = checkbox.checked ? 'block' : 'none';
+                
+                // Toggle on checkbox change
+                checkbox.addEventListener('change', function() {
+                    otherTextField.style.display = this.checked ? 'block' : 'none';
+                });
+            }
+        });
+    }
+
+    // Countdown timer functionality for countdown page
+    const countdownElement = document.getElementById('countdown-timer');
+    if (countdownElement) {
+        // Set the launch date (e.g., June 1, 2025)
+        const launchDate = new Date('June 1, 2025 00:00:00').getTime();
+        
+        // Update the countdown every second
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            // Calculate days, hours, minutes, seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the countdown
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            
+            // If the countdown is over
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                countdownElement.innerHTML = "Dwello is Live!";
+            }
+        }, 1000);
+    }
+    
+    // Add animation on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        elements.forEach(element => {
+            const position = element.getBoundingClientRect();
+            if (position.top < window.innerHeight * 0.8) {
+                element.classList.add('animated');
+            }
+        });
+    };
+    
+    // Run once on page load and then on scroll
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
 });

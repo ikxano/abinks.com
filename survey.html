@@ -53,19 +53,16 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="move-date">When do you need housing?</label>
-                            <input type="date" id="move-date" name="move-date" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="budget">Monthly Budget (USD)</label>
+                            <label for="budget">Monthly Accommodation Budget</label>
                             <select id="budget" name="budget" required>
-                                <option value="" disabled selected>Select your budget</option>
-                                <option value="under-500">Under $500</option>
-                                <option value="500-750">$500 - $750</option>
-                                <option value="750-1000">$750 - $1000</option>
-                                <option value="1000-1500">$1000 - $1500</option>
-                                <option value="above-1500">Above $1500</option>
+                                <option value="" disabled selected>Select your budget range</option>
+                                <option value="Less than ₵1000">Less than ₵1000</option>
+                                <option value="₵1000 - ₵2000">₵1000 - ₵2000</option>
+                                <option value="₵2000 - ₵4000">₵2000 - ₵4000</option>
+                                <option value="₵4000 - ₵6000">₵4000 - ₵6000</option>
+                                <option value="₵6000 - ₵8000">₵6000 - ₵8000</option>
+                                <option value="₵8000 - ₵10000">8000 - ₵10000</option>
+                                <option value="More than ₵10000">More than ₵10000</option>
                             </select>
                         </div>
                         
@@ -331,6 +328,26 @@
                             <p class="privacy-note">We'll only use your contact information to share app updates. No spam, we promise!</p>
                         </div>
                         
+                        <div id="loading-indicator" style="display: none;">
+                          Submitting your response... <div class="spinner"></div>
+                        </div>
+                        
+                        <style>
+                        .spinner {
+                          display: inline-block;
+                          width: 20px;
+                          height: 20px;
+                          border: 3px solid rgba(255,255,255,.3);
+                          border-radius: 50%;
+                          border-top-color: #fff;
+                          animation: spin 1s ease-in-out infinite;
+                        }
+
+                        @keyframes spin {
+                          to { transform: rotate(360deg); }
+                        }
+                        </style>
+                        
                         <button type="submit" class="btn primary-btn survey-submit">Join the Waitlist</button>
                     </form>
                 </div>
@@ -388,6 +405,55 @@
         </div>
     </footer>
     
-    <script src="js/script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (document.getElementById("housing-search-form")) {
+        document.getElementById("housing-search-form").addEventListener("submit", function(e) {
+          e.preventDefault();
+          
+          // Show loading indicator
+          document.getElementById("loading-indicator").style.display = "block";
+          
+          // Helper to get multiple checkbox values
+          const getCheckedValues = (name) => {
+            return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
+          };
+
+          const data = {
+            university: document.getElementById("university").value,
+            studentType: document.getElementById("student-type").value,
+            budget: document.getElementById("budget").value,
+            hostelFind: getCheckedValues("hostel-find").concat(document.getElementById("q1-other-text").value || ""),
+            difficulties: getCheckedValues("difficulties").concat(document.getElementById("q2-other-text").value || ""),
+            challenges: getCheckedValues("challenges").concat(document.getElementById("q3-other-text").value || ""),
+            useApp: document.querySelector('input[name="use-app"]:checked')?.value || "",
+            appFeatures: getCheckedValues("app-features").concat(document.getElementById("q5-other-text").value || ""),
+            email: document.getElementById("notify-email").value,
+            phone: document.getElementById("phone").value
+          };
+
+          // Using your specific web app URL
+          fetch("https://script.google.com/macros/s/AKfycbw3pFhWZUVthJYRse9tXAG_Dutk4O4divF8OJq-9NncPMxB6MfVNzX35rlFifFUeIfrnQ/exec", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" }
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Hide loading indicator
+            document.getElementById("loading-indicator").style.display = "none";
+            alert("Thanks! Your response has been recorded.");
+            document.getElementById("housing-search-form").reset();
+          })
+          .catch(error => {
+            // Hide loading indicator
+            document.getElementById("loading-indicator").style.display = "none";
+            console.error("Error submitting form:", error);
+            alert("There was an error submitting the form. Please try again.");
+          });
+        });
+      }
+    });
+    </script>
 </body>
 </html>
