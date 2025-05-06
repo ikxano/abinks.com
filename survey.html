@@ -35,7 +35,7 @@
                 <p class="labs-description">Answer a few questions to help us find the best housing options near your campus.</p>
                 
                 <div class="survey-form-container">
-                    <form id="housing-search-form" class="survey-form">
+                    <form id="housing-search-form" action="https://script.google.com/macros/s/AKfycbzehu4MpUXr83IfQdmXaW0y2Pk2fRPNH-G96Z5IzOCft8MLC8f186ABbj8uX4Pm7xvPqA/exec" method="POST" target="hidden-iframe">
                         <div class="form-group">
                             <label for="university">University or College</label>
                             <input type="text" id="university" name="university" placeholder="Enter your university name" required>
@@ -328,27 +328,15 @@
                             <p class="privacy-note">We'll only use your contact information to share app updates. No spam, we promise!</p>
                         </div>
                         
-                        <div id="loading-indicator" style="display: none;">
-                          Submitting your response... <div class="spinner"></div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit Survey</button>
                         </div>
                         
-                        <style>
-                        .spinner {
-                          display: inline-block;
-                          width: 20px;
-                          height: 20px;
-                          border: 3px solid rgba(255,255,255,.3);
-                          border-radius: 50%;
-                          border-top-color: #fff;
-                          animation: spin 1s ease-in-out infinite;
-                        }
-
-                        @keyframes spin {
-                          to { transform: rotate(360deg); }
-                        }
-                        </style>
-                        
-                        <button type="submit" class="btn primary-btn survey-submit">Join the Waitlist</button>
+                        <!-- Hidden loading indicator -->
+                        <div id="loading-indicator" style="display: none; text-align: center; margin-top: 20px;">
+                          <p>Submitting your response... Please wait.</p>
+                          <div class="spinner" style="display: inline-block; width: 30px; height: 30px; border: 4px solid rgba(0,0,0,0.1); border-radius: 50%; border-top-color: #001c4c; animation: spin 1s ease-in-out infinite;"></div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -405,53 +393,54 @@
         </div>
     </footer>
     
+    <!-- Add these items immediately after the closing </form> tag -->
+    <iframe name="hidden-iframe" id="hidden-iframe" style="display:none;"></iframe>
+
+    <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    </style>
+
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      if (document.getElementById("housing-search-form")) {
-        document.getElementById("housing-search-form").addEventListener("submit", function(e) {
-          e.preventDefault();
+    // Show loading indicator when form is submitted
+    document.getElementById("housing-search-form").addEventListener("submit", function() {
+      document.getElementById("loading-indicator").style.display = "block";
+      
+      // Handle form submission result
+      document.getElementById("hidden-iframe").onload = function() {
+        document.getElementById("loading-indicator").style.display = "none";
+        alert("Thank you! Your survey has been submitted successfully.");
+        document.getElementById("housing-search-form").reset();
+      };
+    });
+    
+    // Toggle "Other" text fields
+    document.querySelectorAll('input[type="checkbox"][value="other"]').forEach(checkbox => {
+      const questionId = checkbox.id;
+      let otherTextId;
+      
+      if (questionId.includes('find-other')) {
+        otherTextId = 'q1-other-text';
+      } else if (questionId.includes('diff-other')) {
+        otherTextId = 'q2-other-text';
+      } else if (questionId.includes('challenge-other')) {
+        otherTextId = 'q3-other-text';
+      } else if (questionId.includes('feature-other')) {
+        otherTextId = 'q5-other-text';
+      }
+      
+      if (otherTextId) {
+        const otherTextField = document.getElementById(otherTextId);
+        if (otherTextField) {
+          // Initial state
+          otherTextField.style.display = checkbox.checked ? 'block' : 'none';
           
-          // Show loading indicator
-          document.getElementById("loading-indicator").style.display = "block";
-          
-          // Helper to get multiple checkbox values
-          const getCheckedValues = (name) => {
-            return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
-          };
-
-          const data = {
-            university: document.getElementById("university").value,
-            studentType: document.getElementById("student-type").value,
-            budget: document.getElementById("budget").value,
-            hostelFind: getCheckedValues("hostel-find").concat(document.getElementById("q1-other-text").value || ""),
-            difficulties: getCheckedValues("difficulties").concat(document.getElementById("q2-other-text").value || ""),
-            challenges: getCheckedValues("challenges").concat(document.getElementById("q3-other-text").value || ""),
-            useApp: document.querySelector('input[name="use-app"]:checked')?.value || "",
-            appFeatures: getCheckedValues("app-features").concat(document.getElementById("q5-other-text").value || ""),
-            email: document.getElementById("notify-email").value,
-            phone: document.getElementById("phone").value
-          };
-
-          // Using your specific web app URL
-          fetch("https://script.google.com/macros/s/AKfycbw3pFhWZUVthJYRse9tXAG_Dutk4O4divF8OJq-9NncPMxB6MfVNzX35rlFifFUeIfrnQ/exec", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: { "Content-Type": "application/json" }
-          })
-          .then(response => response.json())
-          .then(data => {
-            // Hide loading indicator
-            document.getElementById("loading-indicator").style.display = "none";
-            alert("Thanks! Your response has been recorded.");
-            document.getElementById("housing-search-form").reset();
-          })
-          .catch(error => {
-            // Hide loading indicator
-            document.getElementById("loading-indicator").style.display = "none";
-            console.error("Error submitting form:", error);
-            alert("There was an error submitting the form. Please try again.");
+          // Toggle on checkbox change
+          checkbox.addEventListener('change', function() {
+            otherTextField.style.display = this.checked ? 'block' : 'none';
           });
-        });
+        }
       }
     });
     </script>

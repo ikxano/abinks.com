@@ -170,7 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return element ? element.value || "" : "";
             };
 
-            const data = {
+            // Create data object
+            const formData = {
                 university: document.getElementById("university").value,
                 studentType: document.getElementById("student-type").value,
                 budget: document.getElementById("budget").value,
@@ -183,14 +184,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 phone: document.getElementById("phone").value
             };
 
-            // Using the Google Apps Script Web App URL
-            fetch("https://script.google.com/macros/s/AKfycbw3pFhWZUVthJYRse9tXAG_Dutk4O4divF8OJq-9NncPMxB6MfVNzX35rlFifFUeIfrnQ/exec", {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: { "Content-Type": "application/json" }
-            })
-            .then(response => response.json())
-            .then(data => {
+            console.log("Submitting form data:", formData);
+
+            // Method 1: Using standard form submission (avoids CORS issues)
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://script.google.com/macros/s/AKfycbw3pFhWZUVthJYRse9tXAG_Dutk4O4divF8OJq-9NncPMxB6MfVNzX35rlFifFUeIfrnQ/exec';
+            form.target = '_blank'; // Opens response in new tab, prevents page navigation
+            form.style.display = 'none';
+
+            // Add data as hidden fields
+            for (const key in formData) {
+                if (formData.hasOwnProperty(key)) {
+                    const value = Array.isArray(formData[key]) ? formData[key].join(', ') : formData[key];
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    form.appendChild(input);
+                }
+            }
+
+            // Append form to body and submit
+            document.body.appendChild(form);
+            
+            try {
+                form.submit();
+                console.log("Form submitted successfully");
+                
                 // Hide loading indicator
                 if (loadingIndicator) {
                     loadingIndicator.style.display = "none";
@@ -201,16 +222,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Reset form
                 document.getElementById("housing-search-form").reset();
-            })
-            .catch(error => {
+            } catch (error) {
+                console.error("Error submitting form:", error);
+                
                 // Hide loading indicator
                 if (loadingIndicator) {
                     loadingIndicator.style.display = "none";
                 }
                 
-                console.error("Error submitting form:", error);
                 alert("There was an error submitting the form. Please try again.");
-            });
+            }
+            
+            // Clean up the temporary form
+            setTimeout(() => {
+                document.body.removeChild(form);
+            }, 500);
         });
 
         // Handle "Other" checkbox toggles to show/hide text inputs
