@@ -329,7 +329,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit Survey</button>
+                            <button type="submit" class="btn btn-primary" style="background-color: #001c4c; color: white; font-weight: bold; padding: 12px 24px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">Submit the Survey</button>
                         </div>
                         
                         <!-- Hidden loading indicator -->
@@ -399,6 +399,88 @@
     <style>
     @keyframes spin {
       to { transform: rotate(360deg); }
+    }
+
+    /* Improve checkbox styling for better visibility on phone/tablet */
+    input[type="checkbox"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #001c4c;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: #001c4c;
+    }
+
+    input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      left: 6px;
+      top: 2px;
+    }
+
+    /* Improve radio button styling */
+    input[type="radio"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #001c4c;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    input[type="radio"]:checked {
+      border: 2px solid #001c4c;
+    }
+
+    input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #001c4c;
+      border-radius: 50%;
+      left: 3px;
+      top: 3px;
+    }
+
+    /* Make form elements more touch-friendly for mobile/tablet */
+    .checkbox-item, .radio-option {
+      padding: 8px 0;
+    }
+
+    label {
+      cursor: pointer;
+      font-size: 16px; /* Larger text for better readability on mobile */
+    }
+
+    /* Responsive button size for mobile/tablet */
+    @media (max-width: 768px) {
+      .btn-primary {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 18px;
+      }
     }
     </style>
 
