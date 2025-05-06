@@ -328,8 +328,8 @@
                             <p class="privacy-note">We'll only use your contact information to share app updates. No spam, we promise!</p>
                         </div>
                         
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary" style="background-color: #001c4c; color: white; font-weight: bold; padding: 12px 30px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s; letter-spacing: 0.5px; text-transform: uppercase;">Submit the Survey</button>
+                        <div class="form-group" style="text-align: center; margin: 30px 0;">
+                            <button type="submit" class="btn btn-primary" style="background-color: white !important; color: #001c4c !important; font-weight: bold !important; padding: 12px 30px !important; border: 2px solid #001c4c !important; border-radius: 6px !important; font-size: 16px !important; cursor: pointer !important; transition: all 0.3s !important; letter-spacing: 0.5px !important; text-transform: uppercase !important; box-shadow: none !important; display: inline-block !important; min-width: 200px !important;">Submit the Survey</button>
                         </div>
                         
                         <!-- Hidden loading indicator -->
@@ -401,7 +401,7 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Updated checkbox styling to match the image */
+    /* Updated checkbox styling with better alignment */
     input[type="checkbox"] {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -416,6 +416,9 @@
       position: relative;
       vertical-align: middle;
       margin-right: 12px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
     }
 
     input[type="checkbox"]:checked {
@@ -430,8 +433,55 @@
       border: solid #001c4c;
       border-width: 0 3px 3px 0;
       transform: rotate(45deg);
-      left: 8px;
-      top: 4px;
+      left: 50%;
+      top: 40%;
+      margin-left: -3px;
+      margin-top: -6px;
+    }
+
+    /* Keep labels next to checkboxes */
+    .checkbox-option {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .checkbox-option input[type="checkbox"] {
+      flex-shrink: 0;
+      margin-top: 3px; /* Align with first line of text */
+    }
+
+    .checkbox-option .option-label {
+      margin-left: 8px;
+    }
+
+    /* Fix alignment for other checkbox items too */
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      flex-shrink: 0;
+      margin-top: 3px; /* Align with first line of text */
+    }
+
+    .checkbox-item label {
+      margin-left: 8px;
+    }
+
+    /* Special handling for "other" option */
+    .other-option {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .other-option input[type="text"] {
+      margin-left: 8px;
+      flex-grow: 1;
+      min-width: 200px;
     }
 
     /* Improve radio button styling */
@@ -449,6 +499,9 @@
       position: relative;
       vertical-align: middle;
       margin-right: 12px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
     }
 
     input[type="radio"]:checked {
@@ -463,26 +516,34 @@
       height: 12px;
       background-color: #001c4c;
       border-radius: 50%;
-      left: 4px;
-      top: 4px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
 
-    /* Make form elements more touch-friendly for mobile/tablet */
-    .checkbox-item, .radio-option {
-      padding: 10px 0;
+    /* Center button container on all devices */
+    .form-group {
+      text-align: center !important;
+      margin: 30px 0 !important;
     }
 
-    label {
-      cursor: pointer;
-      font-size: 16px;
+    /* Button styling for all devices */
+    .btn-primary {
+      background-color: white !important;
+      color: #001c4c !important;
+      border: 2px solid #001c4c !important;
+      display: inline-block !important;
+      min-width: 200px !important;
     }
 
     /* Responsive button size for mobile/tablet */
     @media (max-width: 768px) {
       .btn-primary {
-        width: 100%;
-        padding: 15px 20px;
-        font-size: 18px;
+        width: auto !important; /* Changed from 100% to auto */
+        max-width: 80% !important; /* Limit width on mobile */
+        padding: 15px 20px !important;
+        font-size: 18px !important;
+        margin: 0 auto !important; /* Center the button */
       }
     }
     </style>
