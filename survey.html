@@ -439,51 +439,6 @@
       margin-top: -6px;
     }
 
-    /* Keep labels next to checkboxes */
-    .checkbox-option {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 10px;
-    }
-
-    .checkbox-option input[type="checkbox"] {
-      flex-shrink: 0;
-      margin-top: 3px; /* Align with first line of text */
-    }
-
-    .checkbox-option .option-label {
-      margin-left: 8px;
-    }
-
-    /* Fix alignment for other checkbox items too */
-    .checkbox-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 10px;
-    }
-
-    .checkbox-item input[type="checkbox"] {
-      flex-shrink: 0;
-      margin-top: 3px; /* Align with first line of text */
-    }
-
-    .checkbox-item label {
-      margin-left: 8px;
-    }
-
-    /* Special handling for "other" option */
-    .other-option {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .other-option input[type="text"] {
-      margin-left: 8px;
-      flex-grow: 1;
-      min-width: 200px;
-    }
-
     /* Improve radio button styling */
     input[type="radio"] {
       -webkit-appearance: none;
@@ -519,6 +474,46 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+    }
+
+    /* Keep checkbox and label on same line, left-aligned */
+    .checkbox-group, .options-container {
+      text-align: left;
+    }
+
+    .checkbox-item, .checkbox-option, .radio-option {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .checkbox-item input[type="checkbox"], 
+    .checkbox-option input[type="checkbox"],
+    .radio-option input[type="radio"] {
+      flex-shrink: 0;
+      margin-top: 3px; /* Align with first line of text */
+    }
+
+    .checkbox-item label, 
+    .checkbox-option .option-label,
+    .radio-option .option-label {
+      margin-left: 8px;
+      text-align: left;
+    }
+
+    /* Special handling for "other" option */
+    .other-option {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    .other-option input[type="text"] {
+      margin-left: 8px;
+      flex-grow: 1;
+      min-width: 200px;
     }
 
     /* Center button container on all devices */
