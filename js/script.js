@@ -53,40 +53,125 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle the housing search form submission with improved UX
     const housingSearchForm = document.getElementById('housing-search-form');
     if (housingSearchForm) {
+        // Remove hardcoded form action
+        housingSearchForm.removeAttribute('action');
+        
         housingSearchForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const university = document.getElementById('university').value;
-            const email = document.getElementById('email').value;
-            const moveDate = document.getElementById('move-date').value;
-            
-            // Simple validation
-            if (!university || !email || !moveDate) {
-                alert('Please fill out all fields to find your perfect housing match!');
-                return;
+            // Show loading indicator if it exists
+            const loadingIndicator = document.getElementById("loading-indicator");
+            if (loadingIndicator) {
+                loadingIndicator.style.display = "block";
             }
             
-            // Disable submit button to prevent double submissions
-            const submitBtn = this.querySelector('button[type="submit"]');
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Finding matches...';
-            }
+            // Helper to get multiple checkbox values
+            const getCheckedValues = (name) => {
+                return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
+            };
+
+            // Get "other" text value if it exists
+            const getOtherText = (id) => {
+                const element = document.getElementById(id);
+                return element ? element.value || "" : "";
+            };
+
+            // Create data object
+            const formData = {
+                university: document.getElementById("university").value,
+                studentType: document.getElementById("student-type").value,
+                budget: document.getElementById("budget").value,
+                hostelFind: getCheckedValues("hostel-find").concat(getOtherText("q1-other-text")),
+                difficulties: getCheckedValues("difficulties").concat(getOtherText("q2-other-text")),
+                challenges: getCheckedValues("challenges").concat(getOtherText("q3-other-text")),
+                useApp: document.querySelector('input[name="use-app"]:checked')?.value || "",
+                appFeatures: getCheckedValues("app-features").concat(getOtherText("q5-other-text")),
+                email: document.getElementById("notify-email").value,
+                phone: document.getElementById("phone").value
+            };
+
+            console.log("Submitting form data:", formData);
+
+            // Fetch the form submission URL from our secure API endpoint
+            fetch('/api/config')
+                .then(response => response.json())
+                .then(config => {
+                    // Create dynamic form with the securely provided URL
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = config.formSubmitUrl;
+                    form.target = '_blank';
+                    form.style.display = 'none';
+
+                    // Add data as hidden fields
+                    for (const key in formData) {
+                        if (formData.hasOwnProperty(key)) {
+                            const value = Array.isArray(formData[key]) ? formData[key].join(', ') : formData[key];
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            input.value = value;
+                            form.appendChild(input);
+                        }
+                    }
+
+                    // Append form to body and submit
+                    document.body.appendChild(form);
+                    
+                    try {
+                        form.submit();
+                        console.log("Form submitted successfully");
+                        
+                        // Hide loading indicator
+                        if (loadingIndicator) {
+                            loadingIndicator.style.display = "none";
+                        }
+                        
+                        // Show success message
+                        alert("Thanks! Your response has been recorded.");
+                        
+                        // Reset form
+                        document.getElementById("housing-search-form").reset();
+                    } catch (error) {
+                        console.error("Error submitting form:", error);
+                        
+                        // Hide loading indicator
+                        if (loadingIndicator) {
+                            loadingIndicator.style.display = "none";
+                        }
+                        
+                        alert("There was an error submitting the form. Please try again.");
+                    }
+                    
+                    // Clean up the temporary form
+                    setTimeout(() => {
+                        document.body.removeChild(form);
+                    }, 500);
+                })
+                .catch(error => {
+                    console.error("Error fetching config:", error);
+                    if (loadingIndicator) {
+                        loadingIndicator.style.display = "none";
+                    }
+                    alert("There was an error connecting to the server. Please try again later.");
+                });
+        });
+
+        // Handle "Other" checkbox toggles to show/hide text inputs
+        document.querySelectorAll('input[type="checkbox"][value="Other"]').forEach(checkbox => {
+            const questionNumber = checkbox.name.match(/\d+/)?.[0] || "";
+            const otherTextId = `q${questionNumber}-other-text`;
+            const otherTextField = document.getElementById(otherTextId);
             
-            // Simulate API call with timeout
-            setTimeout(() => {
-                alert(`Great news! We'll send housing options near ${university} to ${email} soon.`);
+            if (otherTextField) {
+                // Initial state
+                otherTextField.style.display = checkbox.checked ? 'block' : 'none';
                 
-                // Re-enable button
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Find Housing Now';
-                }
-                
-                // Optional: Reset form or redirect
-                // housingSearchForm.reset();
-                // window.location.href = '/thank-you';
-            }, 1000);
+                // Toggle on checkbox change
+                checkbox.addEventListener('change', function() {
+                    otherTextField.style.display = this.checked ? 'block' : 'none';
+                });
+            }
         });
     }
 
@@ -147,115 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Form submission handling for survey
-    if (document.getElementById("housing-search-form")) {
-        document.getElementById("housing-search-form").addEventListener("submit", function(e) {
-            e.preventDefault();
-            
-            // Show loading indicator if it exists
-            const loadingIndicator = document.getElementById("loading-indicator");
-            if (loadingIndicator) {
-                loadingIndicator.style.display = "block";
-            }
-            
-            // Helper to get multiple checkbox values
-            const getCheckedValues = (name) => {
-                return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
-            };
-
-            // Get "other" text value if it exists
-            const getOtherText = (id) => {
-                const element = document.getElementById(id);
-                return element ? element.value || "" : "";
-            };
-
-            // Create data object
-            const formData = {
-                university: document.getElementById("university").value,
-                studentType: document.getElementById("student-type").value,
-                budget: document.getElementById("budget").value,
-                hostelFind: getCheckedValues("hostel-find").concat(getOtherText("q1-other-text")),
-                difficulties: getCheckedValues("difficulties").concat(getOtherText("q2-other-text")),
-                challenges: getCheckedValues("challenges").concat(getOtherText("q3-other-text")),
-                useApp: document.querySelector('input[name="use-app"]:checked')?.value || "",
-                appFeatures: getCheckedValues("app-features").concat(getOtherText("q5-other-text")),
-                email: document.getElementById("notify-email").value,
-                phone: document.getElementById("phone").value
-            };
-
-            console.log("Submitting form data:", formData);
-
-            // Method 1: Using standard form submission (avoids CORS issues)
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://script.google.com/macros/s/AKfycbw3pFhWZUVthJYRse9tXAG_Dutk4O4divF8OJq-9NncPMxB6MfVNzX35rlFifFUeIfrnQ/exec';
-            form.target = '_blank'; // Opens response in new tab, prevents page navigation
-            form.style.display = 'none';
-
-            // Add data as hidden fields
-            for (const key in formData) {
-                if (formData.hasOwnProperty(key)) {
-                    const value = Array.isArray(formData[key]) ? formData[key].join(', ') : formData[key];
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = value;
-                    form.appendChild(input);
-                }
-            }
-
-            // Append form to body and submit
-            document.body.appendChild(form);
-            
-            try {
-                form.submit();
-                console.log("Form submitted successfully");
-                
-                // Hide loading indicator
-                if (loadingIndicator) {
-                    loadingIndicator.style.display = "none";
-                }
-                
-                // Show success message
-                alert("Thanks! Your response has been recorded.");
-                
-                // Reset form
-                document.getElementById("housing-search-form").reset();
-            } catch (error) {
-                console.error("Error submitting form:", error);
-                
-                // Hide loading indicator
-                if (loadingIndicator) {
-                    loadingIndicator.style.display = "none";
-                }
-                
-                alert("There was an error submitting the form. Please try again.");
-            }
-            
-            // Clean up the temporary form
-            setTimeout(() => {
-                document.body.removeChild(form);
-            }, 500);
-        });
-
-        // Handle "Other" checkbox toggles to show/hide text inputs
-        document.querySelectorAll('input[type="checkbox"][value="Other"]').forEach(checkbox => {
-            const questionNumber = checkbox.name.match(/\d+/)?.[0] || "";
-            const otherTextId = `q${questionNumber}-other-text`;
-            const otherTextField = document.getElementById(otherTextId);
-            
-            if (otherTextField) {
-                // Initial state
-                otherTextField.style.display = checkbox.checked ? 'block' : 'none';
-                
-                // Toggle on checkbox change
-                checkbox.addEventListener('change', function() {
-                    otherTextField.style.display = this.checked ? 'block' : 'none';
-                });
-            }
-        });
-    }
 
     // Countdown timer functionality for countdown page
     const countdownElement = document.getElementById('countdown-timer');
